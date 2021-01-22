@@ -3,3 +3,6 @@
 ################################################################################
 
 *.suo
+Projet2/Projet2/bin
+Projet2/Projet2/obj
+Projet2/Projet2/Projet2.csproj.user
