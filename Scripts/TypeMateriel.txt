@@ -1,0 +1,23 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[TypeMateriel]    Script Date: 22/01/2021 10:46:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypeMateriel](
+	[IdTypeMateriel] [int] NOT NULL,
+	[LibelleTypeMateriel] [nvarchar](50) NULL,
+ CONSTRAINT [PK_TypeMateriel] PRIMARY KEY CLUSTERED 
+(
+	[IdTypeMateriel] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (1, N'Véhicule 5 places')
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (2, N'Fourgonnette')
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (3, N'Poussette')
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (4, N'Visseuse')
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (5, N'Tronçonneuse')
+INSERT [dbo].[TypeMateriel] ([IdTypeMateriel], [LibelleTypeMateriel]) VALUES (6, N'Bétonnière')
+GO

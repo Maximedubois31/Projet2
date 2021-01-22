@@ -1,0 +1,33 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[DemandeAide]    Script Date: 22/01/2021 10:43:00 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DemandeAide](
+	[NumDemandeAide] [int] NOT NULL,
+	[Description] [nchar](10) NULL,
+	[DateDepotDemande] [nchar](10) NULL,
+	[NoteBeneficiaire] [nchar](10) NULL,
+	[NoteVolontaire] [nchar](10) NULL,
+	[DateAnnulationDemande] [nchar](10) NULL,
+	[DateTraitement] [nchar](10) NULL,
+	[NumCompte] [int] NULL,
+	[IdTypeAide] [int] NULL,
+ CONSTRAINT [PK_DemandeAide] PRIMARY KEY CLUSTERED 
+(
+	[NumDemandeAide] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[DemandeAide]  WITH CHECK ADD  CONSTRAINT [FK_DemandeAide_TypeAide] FOREIGN KEY([IdTypeAide])
+REFERENCES [dbo].[TypeAide] ([IdTypeAide])
+GO
+ALTER TABLE [dbo].[DemandeAide] CHECK CONSTRAINT [FK_DemandeAide_TypeAide]
+GO
+ALTER TABLE [dbo].[DemandeAide]  WITH CHECK ADD  CONSTRAINT [FK_DemandeAide_Utilisateur] FOREIGN KEY([NumCompte])
+REFERENCES [dbo].[Utilisateur] ([NumCompte])
+GO
+ALTER TABLE [dbo].[DemandeAide] CHECK CONSTRAINT [FK_DemandeAide_Utilisateur]
+GO
