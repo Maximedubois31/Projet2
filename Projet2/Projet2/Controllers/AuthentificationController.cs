@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace Projet2.Controllers
 {
-    public class HomeController : Controller
+    public class AuthentificationController : Controller
     {
-        public ActionResult Home()
+        // GET: Authentification
+        public ActionResult seDeconnecter()
         {
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult validerConnexion()
         {
             return View();
         }
