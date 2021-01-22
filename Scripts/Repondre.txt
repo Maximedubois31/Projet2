@@ -1,0 +1,24 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[Repondre]    Script Date: 22/01/2021 10:45:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Repondre](
+	[DateReponse] [date] NULL,
+	[DateRenonciation] [date] NULL,
+	[NumDemandeAide] [int] NULL,
+	[NumCompte] [int] NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Repondre]  WITH CHECK ADD  CONSTRAINT [FK_Repondre_DemandeAide] FOREIGN KEY([NumDemandeAide])
+REFERENCES [dbo].[DemandeAide] ([NumDemandeAide])
+GO
+ALTER TABLE [dbo].[Repondre] CHECK CONSTRAINT [FK_Repondre_DemandeAide]
+GO
+ALTER TABLE [dbo].[Repondre]  WITH CHECK ADD  CONSTRAINT [FK_Repondre_Utilisateur] FOREIGN KEY([NumCompte])
+REFERENCES [dbo].[Utilisateur] ([NumCompte])
+GO
+ALTER TABLE [dbo].[Repondre] CHECK CONSTRAINT [FK_Repondre_Utilisateur]
+GO

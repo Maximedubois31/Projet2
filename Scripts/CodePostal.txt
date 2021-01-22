@@ -1,0 +1,21 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[CodePostal]    Script Date: 22/01/2021 10:42:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CodePostal](
+	[IdCodePostal] [int] NOT NULL,
+	[CodePostal] [int] NULL,
+ CONSTRAINT [PK_CodePostal] PRIMARY KEY CLUSTERED 
+(
+	[IdCodePostal] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CodePostal] ([IdCodePostal], [CodePostal]) VALUES (1, 31000)
+INSERT [dbo].[CodePostal] ([IdCodePostal], [CodePostal]) VALUES (2, 33000)
+INSERT [dbo].[CodePostal] ([IdCodePostal], [CodePostal]) VALUES (3, 75000)
+INSERT [dbo].[CodePostal] ([IdCodePostal], [CodePostal]) VALUES (4, 34000)
+GO

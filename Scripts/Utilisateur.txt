@@ -1,0 +1,34 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[Utilisateur]    Script Date: 22/01/2021 10:46:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Utilisateur](
+	[NumCompte] [int] NOT NULL,
+	[Nom] [nvarchar](50) NULL,
+	[Prenom] [nvarchar](50) NULL,
+	[DateDeNaissance] [date] NULL,
+	[DenominationRue] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[NumeroTelephone] [int] NULL,
+	[NumeroPortable] [int] NULL,
+	[Login] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](50) NOT NULL,
+	[DateInscription] [date] NULL,
+	[DateDeinscription] [date] NULL,
+	[IdVille] [int] NULL,
+ CONSTRAINT [PK_Utilisateur] PRIMARY KEY CLUSTERED 
+(
+	[NumCompte] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Utilisateur] ([NumCompte], [Nom], [Prenom], [DateDeNaissance], [DenominationRue], [Email], [NumeroTelephone], [NumeroPortable], [Login], [Password], [DateInscription], [DateDeinscription], [IdVille]) VALUES (1, N'dub', N'max', CAST(N'1995-07-09' AS Date), N'razer', N'azazer', 5050505, 6060606, N'azr', N'azer', CAST(N'2099-09-09' AS Date), CAST(N'1994-05-20' AS Date), NULL)
+GO
+ALTER TABLE [dbo].[Utilisateur]  WITH CHECK ADD  CONSTRAINT [FK_Utilisateur_Ville] FOREIGN KEY([IdVille])
+REFERENCES [dbo].[Ville] ([IdVille])
+GO
+ALTER TABLE [dbo].[Utilisateur] CHECK CONSTRAINT [FK_Utilisateur_Ville]
+GO

@@ -1,0 +1,23 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[DemandeMateriel]    Script Date: 22/01/2021 10:43:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DemandeMateriel](
+	[Quantite] [int] NULL,
+	[NumDemandeAide] [int] NULL,
+	[IdTypeMateriel] [int] NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[DemandeMateriel]  WITH CHECK ADD  CONSTRAINT [FK_DemandeMateriel_DemandeAide] FOREIGN KEY([NumDemandeAide])
+REFERENCES [dbo].[DemandeAide] ([NumDemandeAide])
+GO
+ALTER TABLE [dbo].[DemandeMateriel] CHECK CONSTRAINT [FK_DemandeMateriel_DemandeAide]
+GO
+ALTER TABLE [dbo].[DemandeMateriel]  WITH CHECK ADD  CONSTRAINT [FK_DemandeMateriel_TypeMateriel] FOREIGN KEY([IdTypeMateriel])
+REFERENCES [dbo].[TypeMateriel] ([IdTypeMateriel])
+GO
+ALTER TABLE [dbo].[DemandeMateriel] CHECK CONSTRAINT [FK_DemandeMateriel_TypeMateriel]
+GO

@@ -1,0 +1,24 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[PreferenceCategorie]    Script Date: 22/01/2021 10:44:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PreferenceCategorie](
+	[DateDebutChoixCategorie] [date] NULL,
+	[DateFinChoixCategorie] [date] NULL,
+	[IdCategorie] [int] NULL,
+	[NumCompte] [int] NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[PreferenceCategorie]  WITH CHECK ADD  CONSTRAINT [FK_PreferenceCategorie_CategorieAide] FOREIGN KEY([IdCategorie])
+REFERENCES [dbo].[CategorieAide] ([IdCategorie])
+GO
+ALTER TABLE [dbo].[PreferenceCategorie] CHECK CONSTRAINT [FK_PreferenceCategorie_CategorieAide]
+GO
+ALTER TABLE [dbo].[PreferenceCategorie]  WITH CHECK ADD  CONSTRAINT [FK_PreferenceCategorie_Utilisateur] FOREIGN KEY([NumCompte])
+REFERENCES [dbo].[Utilisateur] ([NumCompte])
+GO
+ALTER TABLE [dbo].[PreferenceCategorie] CHECK CONSTRAINT [FK_PreferenceCategorie_Utilisateur]
+GO
