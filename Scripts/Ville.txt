@@ -1,0 +1,33 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[Ville]    Script Date: 22/01/2021 10:46:48 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ville](
+	[IdVille] [int] NOT NULL,
+	[LibelleVille] [nvarchar](50) NULL,
+	[IdPays] [int] NULL,
+	[IdCodePostal] [int] NULL,
+ CONSTRAINT [PK_Ville] PRIMARY KEY CLUSTERED 
+(
+	[IdVille] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Ville] ([IdVille], [LibelleVille], [IdPays], [IdCodePostal]) VALUES (1, N'Toulouse', 1, 1)
+INSERT [dbo].[Ville] ([IdVille], [LibelleVille], [IdPays], [IdCodePostal]) VALUES (2, N'Bordeaux', 1, 2)
+INSERT [dbo].[Ville] ([IdVille], [LibelleVille], [IdPays], [IdCodePostal]) VALUES (3, N'Paris', 1, 3)
+INSERT [dbo].[Ville] ([IdVille], [LibelleVille], [IdPays], [IdCodePostal]) VALUES (4, N'Montpellier', 1, 4)
+GO
+ALTER TABLE [dbo].[Ville]  WITH CHECK ADD  CONSTRAINT [FK_Ville_CodePostal] FOREIGN KEY([IdCodePostal])
+REFERENCES [dbo].[CodePostal] ([IdCodePostal])
+GO
+ALTER TABLE [dbo].[Ville] CHECK CONSTRAINT [FK_Ville_CodePostal]
+GO
+ALTER TABLE [dbo].[Ville]  WITH CHECK ADD  CONSTRAINT [FK_Ville_Pays] FOREIGN KEY([IdPays])
+REFERENCES [dbo].[Pays] ([IdPays])
+GO
+ALTER TABLE [dbo].[Ville] CHECK CONSTRAINT [FK_Ville_Pays]
+GO

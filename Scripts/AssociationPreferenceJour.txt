@@ -1,0 +1,34 @@
+USE [projet2Bdd]
+GO
+
+/****** Object:  Table [dbo].[AssociationPreferenceJour]    Script Date: 22/01/2021 10:35:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AssociationPreferenceJour](
+	[DateChoix] [date] NULL,
+	[DateRenoncementChoix] [date] NULL,
+	[HeureDebutDispo] [time](7) NULL,
+	[HeureFinDispo] [time](7) NULL,
+	[NumCompte] [int] NULL,
+	[IdJour] [int] NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AssociationPreferenceJour]  WITH CHECK ADD  CONSTRAINT [FK_AssociationPreferenceJour_JourBis] FOREIGN KEY([IdJour])
+REFERENCES [dbo].[Jour] ([IdJour])
+GO
+
+ALTER TABLE [dbo].[AssociationPreferenceJour] CHECK CONSTRAINT [FK_AssociationPreferenceJour_JourBis]
+GO
+
+ALTER TABLE [dbo].[AssociationPreferenceJour]  WITH CHECK ADD  CONSTRAINT [FK_AssociationPreferenceJour_Utilisateur] FOREIGN KEY([NumCompte])
+REFERENCES [dbo].[Utilisateur] ([NumCompte])
+GO
+
+ALTER TABLE [dbo].[AssociationPreferenceJour] CHECK CONSTRAINT [FK_AssociationPreferenceJour_Utilisateur]
+GO
+

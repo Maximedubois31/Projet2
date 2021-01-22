@@ -1,0 +1,31 @@
+USE [projet2Bdd]
+GO
+/****** Object:  Table [dbo].[TypeAide]    Script Date: 22/01/2021 10:45:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypeAide](
+	[IdTypeAide] [int] NOT NULL,
+	[LibelleAide] [nvarchar](50) NULL,
+	[IdCategorie] [int] NOT NULL,
+ CONSTRAINT [PK_TypeAide] PRIMARY KEY CLUSTERED 
+(
+	[IdTypeAide] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (1, N'Travaux', 1)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (2, N'Garde d''enfant', 1)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (3, N'Garde d''animaux', 1)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (4, N'Accompagnement scolaire', 1)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (5, N'Aide administrative', 1)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (6, N'Course alimentaire', 2)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (7, N'Course rapide', 2)
+INSERT [dbo].[TypeAide] ([IdTypeAide], [LibelleAide], [IdCategorie]) VALUES (8, N'Promenade d''animaux', 2)
+GO
+ALTER TABLE [dbo].[TypeAide]  WITH CHECK ADD  CONSTRAINT [FK_TypeAide_CategorieAide] FOREIGN KEY([IdCategorie])
+REFERENCES [dbo].[CategorieAide] ([IdCategorie])
+GO
+ALTER TABLE [dbo].[TypeAide] CHECK CONSTRAINT [FK_TypeAide_CategorieAide]
+GO
