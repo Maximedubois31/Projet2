@@ -120,15 +120,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthentificationController.cs" />
+    <Compile Include="Controllers\DemandeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Authentification.cs" />
-    <Compile Include="Models\Association.cs" />
-    <Compile Include="Models\Demande.cs" />
-    <Compile Include="Models\Home.cs" />
-    <Compile Include="Models\Utilisateur.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +152,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\Database1.mdf" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -167,9 +167,32 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\TestHautham.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Home\script.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AllerASespreferencesAides\" />
+    <Folder Include="Views\AllerASesPreferencesJournalieresHoraires\" />
+    <Folder Include="Views\Authentification\" />
+    <Folder Include="Views\Contact\" />
+    <Folder Include="Views\Demande\" />
+    <Folder Include="Views\FaireUneDemande\" />
+    <Folder Include="Views\Inscription\" />
+    <Folder Include="Views\ModifierInformationsPersonnelles\" />
+    <Folder Include="Views\MonComptee\" />
+    <Folder Include="Views\SaisirIndisponibilites\" />
+    <Folder Include="Views\SeDesinscrire\" />
+    <Folder Include="Views\suiviNouvellesDemandes\" />
+    <Folder Include="Views\Utilisateur\" />
+    <Folder Include="Views\ValiderDesinscription\" />
+    <Folder Include="Views\ValiderIndisponibilites\" />
+    <Folder Include="Views\validerInscription\" />
+    <Folder Include="Views\ValiderModificationInfoPerso\" />
+    <Folder Include="Views\ValiderModificationsInfoPerso\" />
+    <Folder Include="Views\validerPreferencesAides\" />
+    <Folder Include="Views\validerPreferencesJournalieresHoraires\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
