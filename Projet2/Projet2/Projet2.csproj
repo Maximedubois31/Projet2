@@ -127,7 +127,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\Association.cs" />
+    <Compile Include="Models\Authentification.cs" />
+    <Compile Include="Models\Demande.cs" />
+    <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +174,8 @@
     <Content Include="Views\Home\TestHautham.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\script.cshtml" />
+    <Content Include="Views\Association\Contact.cshtml" />
+    <Content Include="Views\Home\Acceuil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
