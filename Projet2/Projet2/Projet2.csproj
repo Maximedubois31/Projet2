@@ -173,26 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AllerASespreferencesAides\" />
-    <Folder Include="Views\AllerASesPreferencesJournalieresHoraires\" />
-    <Folder Include="Views\Authentification\" />
-    <Folder Include="Views\Contact\" />
-    <Folder Include="Views\Demande\" />
-    <Folder Include="Views\FaireUneDemande\" />
-    <Folder Include="Views\Inscription\" />
-    <Folder Include="Views\ModifierInformationsPersonnelles\" />
-    <Folder Include="Views\MonComptee\" />
-    <Folder Include="Views\SaisirIndisponibilites\" />
-    <Folder Include="Views\SeDesinscrire\" />
-    <Folder Include="Views\suiviNouvellesDemandes\" />
-    <Folder Include="Views\Utilisateur\" />
-    <Folder Include="Views\ValiderDesinscription\" />
-    <Folder Include="Views\ValiderIndisponibilites\" />
-    <Folder Include="Views\validerInscription\" />
-    <Folder Include="Views\ValiderModificationInfoPerso\" />
-    <Folder Include="Views\ValiderModificationsInfoPerso\" />
-    <Folder Include="Views\validerPreferencesAides\" />
-    <Folder Include="Views\validerPreferencesJournalieresHoraires\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
