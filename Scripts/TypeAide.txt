@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TypeAide](
-	[IdTypeAide] [int] NOT NULL,
+	[IdTypeAide] [int] NOT NULL identity (1,1),
 	[LibelleAide] [nvarchar](50) NULL,
 	[IdCategorie] [int] NOT NULL,
  CONSTRAINT [PK_TypeAide] PRIMARY KEY CLUSTERED 

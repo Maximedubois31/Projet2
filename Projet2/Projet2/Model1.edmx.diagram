@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1090478716da4dad918c56db6147179e" Name="Diagram1">
+        <EntityTypeShape EntityType="projet2BddModel.CategorieAide" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.CodePostal" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.DemandeAide" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.Jour" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.Pays" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.TypeAide" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.TypeMateriel" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.Utilisateur" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.Ville" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="projet2BddModel.FK_TypeAide_CategorieAide" ManuallyRouted="false" />
+        <AssociationConnector Association="projet2BddModel.FK_Ville_CodePostal" ManuallyRouted="false" />
+        <AssociationConnector Association="projet2BddModel.FK_DemandeAide_TypeAide" ManuallyRouted="false" />
+        <AssociationConnector Association="projet2BddModel.FK_DemandeAide_Utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="projet2BddModel.FK_Ville_Pays" ManuallyRouted="false" />
+        <AssociationConnector Association="projet2BddModel.FK_Utilisateur_Ville" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="projet2BddModel.PreferenceCategorie" Width="1.5" PointX="10.5" PointY="3.25" />
+        <AssociationConnector Association="projet2BddModel.FK_PreferenceCategorie_CategorieAide" />
+        <AssociationConnector Association="projet2BddModel.FK_PreferenceCategorie_Utilisateur" />
+        <EntityTypeShape EntityType="projet2BddModel.AssociationPreferenceJour" Width="1.5" PointX="13" PointY="2.75" />
+        <AssociationConnector Association="projet2BddModel.FK_AssociationPreferenceJour_JourBis" />
+        <AssociationConnector Association="projet2BddModel.FK_AssociationPreferenceJour_Utilisateur" />
+        <EntityTypeShape EntityType="projet2BddModel.BesoinMateriel" Width="1.5" PointX="7.5" PointY="8.125" />
+        <AssociationConnector Association="projet2BddModel.FK_BesoinMateriel_TypeAide" />
+        <AssociationConnector Association="projet2BddModel.FK_BesoinMateriel_TypeMateriel" />
+        <EntityTypeShape EntityType="projet2BddModel.DemandeMateriel" Width="1.5" PointX="10.75" PointY="6.875" />
+        <AssociationConnector Association="projet2BddModel.FK_DemandeMateriel_DemandeAide" />
+        <AssociationConnector Association="projet2BddModel.FK_DemandeMateriel_TypeMateriel" />
+        <EntityTypeShape EntityType="projet2BddModel.PreferenceAide" Width="1.5" PointX="10.5" PointY="0.75" />
+        <AssociationConnector Association="projet2BddModel.FK_PreferenceAide_TypeAide" />
+        <AssociationConnector Association="projet2BddModel.FK_PreferenceAide_Utilisateur" />
+        <EntityTypeShape EntityType="projet2BddModel.Repondre" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="projet2BddModel.FK_Repondre_DemandeAide" />
+        <AssociationConnector Association="projet2BddModel.FK_Repondre_Utilisateur" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

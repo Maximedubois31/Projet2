@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Jour](
-	[IdJour] [int] NOT NULL,
+	[IdJour] [int] NOT NULL identity (1,1),
 	[LibelleJour] [nchar](10) NULL,
  CONSTRAINT [PK_JourBis] PRIMARY KEY CLUSTERED 
 (

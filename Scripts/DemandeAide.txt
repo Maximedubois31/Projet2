@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[DemandeAide](
-	[NumDemandeAide] [int] NOT NULL,
+	[NumDemandeAide] [int] NOT NULL identity (1,1),
 	[Description] [nchar](10) NULL,
 	[DateDepotDemande] [nchar](10) NULL,
 	[NoteBeneficiaire] [nchar](10) NULL,
