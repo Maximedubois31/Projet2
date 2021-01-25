@@ -8,73 +8,72 @@ namespace Projet2.Models
     public class Utilisateur
     {
 
-
-        public sinscrire()
+        public void sinscrire()
         {
 
         }
 
-        public creerUnUtilisateur()
+        public void creerUnUtilisateur()
         {
 
         }
           
-        public accesSuivi()
+        public void accesSuivi()
         {
 
         }
 
-        public monCompte()
+        public void monCompte()
         {
 
         }
 
-        public accederPreferencesAides()
+        public void accederPreferencesAides()
         {
 
         }
 
-        public enregistrerPreferencesAides()
+        public void enregistrerPreferencesAides()
         {
 
         }
 
-        public accederPreferencesJourHoraire()
+        public void accederPreferencesJourHoraire()
         {
 
         }
 
-        public enregistrerPreferencesJourHoraire()
+        public void enregistrerPreferencesJourHoraire()
         {
 
         }
 
-        public saisirAbsence()
+        public void saisirAbsence()
         {
 
         }
 
-        public enregistrerIndisponibilite()
+        public void enregistrerIndisponibilite()
         {
 
         }
 
-        public modifierUnUtilisateur()
+        public void modifierUnUtilisateur()
         {
 
         }
 
-        public enregistrerModificationUtilisateur()
+        public void enregistrerModificationUtilisateur()
         {
 
         }
 
-        public supprimerUnUtilisateur()
+        public void supprimerUnUtilisateur()
         {
 
         }
 
-        public validerSuppressionUtilisateur()
+        public void validerSuppressionUtilisateur()
         {
 
         }

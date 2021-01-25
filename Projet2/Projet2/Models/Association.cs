@@ -8,10 +8,9 @@ namespace Projet2.Models
     public class Association
     {
 
-
-        public infoAssociation()
+        public void infoAssociation()
         {
-
+            
         }
     }
 }

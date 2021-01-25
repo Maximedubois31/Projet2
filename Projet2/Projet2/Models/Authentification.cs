@@ -9,12 +9,12 @@ namespace Projet2.Models
     {
 
 
-        public finConnexion()
+        public void finConnexion()
         {
 
         }
 
-        public pageConnexion()
+        public void pageConnexion()
         {
 
         }

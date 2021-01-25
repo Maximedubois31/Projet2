@@ -8,58 +8,57 @@ namespace Projet2.Models
     public class Demande
     {
 
-
-        public creationUneDemandeATraiter()
+        public void creationUneDemandeATraiter()
         {
 
         }
 
-        public ajoutListeDemandeATraiter()
+        public void ajoutListeDemandeATraiter()
         {
 
         }
 
-        public valideModifDemande()
+        public void valideModifDemande()
         {
 
         }
 
-        public annulerUneDemandeATraiter()
+        public void annulerUneDemandeATraiter()
         {
 
         }
 
-        public retraitListeDemandeATraiter()
+        public void retraitListeDemandeATraiter()
         {
 
         }
 
-        public listeDemande()
+        public void listeDemande()
         {
 
         }
 
-        public afficherDemande()
+        public void afficherDemande()
         {
 
         }
 
-        public integrerDemandeVolontaire()
+        public void integrerDemandeVolontaire()
         {
 
         }
 
-        public enregistrerUneDateReponse()
+        public void enregistrerUneDateReponse()
         {
 
         }
 
-        public annulerUneReponse()
+        public void annulerUneReponse()
         {
 
         }
 
-        public filtrerListeDemandeATraiter()
+        public void filtrerListeDemandeATraiter()
         {
 
         }

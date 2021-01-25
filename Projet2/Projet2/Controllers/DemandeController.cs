@@ -9,10 +9,11 @@ namespace Projet2.Controllers
     public class DemandeController : Controller
     {
         // GET: Demande
-        public ActionResult faireDemande()
+        public ActionResult FaireUneDemande()
         {
             return View();
         }
+
         public ActionResult validerNouvelleDemande()
         {
             return View();
