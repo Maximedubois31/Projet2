@@ -8,8 +8,7 @@ namespace Projet2.Models
     public class Home
     {
 
-
-        public pageAccueil()
+        public void pageAccueil()
         {
 
         }

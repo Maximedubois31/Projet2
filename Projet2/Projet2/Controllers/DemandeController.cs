@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,11 @@ namespace Projet2.Controllers
     public class DemandeController : Controller
     {
         // GET: Demande
-        public ActionResult faireDemande()
+        public ActionResult FaireUneDemande()
         {
             return View();
         }
+
         public ActionResult validerNouvelleDemande()
         {
             return View();

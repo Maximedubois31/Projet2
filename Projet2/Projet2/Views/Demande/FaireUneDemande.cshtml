@@ -2,6 +2,142 @@
 @{
     ViewBag.Title = "FaireUneDemande";
 }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire une demande d'aide</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<h2>FaireUneDemande</h2>
+        textarea {
+            min-height: 25vh;
+            min-width: 50vh;
+        }
 
+        select {
+            min-height: 3vh;
+            min-width: 3vh;
+        }
+
+        div.choixaide, div.description, div.jourTraitement, div.heureTraitement, div.materiel, div.semaineRep {
+            position: center;
+            padding: 10px;
+        }
+
+        div.jourCheckbox {
+            position: center;
+            padding: 5px;
+        }
+
+        div.semaineRep {
+            min-width 20vw;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <div class="choixaide">
+            <select name="typeaide" required>
+                <option value="default">Choissiez un type d'aide</option>
+                <optgroup label="Services à domicile">
+                    <option value="travaux">Travaux</option>
+                    <option value="gardeenfant">Garde d'enfant</option>
+                    <option value="gardeanimaux">Garde d'animaux</option>
+                    <option value="accompagnementscolaire">Accompagnement scolaire</option>
+                    <option value="aideadministrative">Aide administrative</option>
+                </optgroup>
+                <optgroup label="Services extérieurs">
+                    <option value="coursealimentaire">Course alimentaire</option>
+                    <option value="courserapide">Course rapide</option>
+                    <option value="promenadeanimaux">Promenade d'animaux</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="jourTraitement" required>
+            <label for="start">Jour de traitement souhaité : </label>
+            <input type="date"
+                   value="date"
+                   min="date">
+        </div>
+        <div class="heureTraitement" required>
+            <label for="appt">Heure de traitement souhaitée : </label>
+            <input type="time">
+        </div>
+        <p>Choissiez les jours de répétition s'il y a, ainsi que l'heure de correpondante au jour coché :</p>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="scales">Lundi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="jour">Mardi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="jour">Mercredi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="jour">Jeudi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="jour">Vendredi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="samedi">Samedi</label>
+            <input type="time">
+        </div>
+        <div class="jourCheckbox">
+            <input type="checkbox">
+            <label for="dimanche">Dimanche</label>
+            <input type="time">
+        </div>
+        <div class="semaineRep">
+            <select name="nbrepsem" id="nbrepsem-select">
+                <option value="default">Choissiez un nombre de semaine de répétition</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div class="materiel">
+            <select name="materiel" id="materiel-select">
+                <option value="default">Matériel nécessaire</option>
+                <option value="1">Véhicule 5 places</option>
+                <option value="2">Fourgonnette</option>
+                <option value="3">Poussette</option>
+                <option value="4">Visseuse</option>
+                <option value="4">Tronçonneuse</option>
+                <option value="4">Bétonnière</option>
+            </select>
+            <select name="quantite" id="quantite-select">
+                <option value="default">Quantité nécessaire</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div class="description">
+            <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
+        </div>
+    
+            <input type="submit" value="Valider" />
+    
+    </form>
+</body>
+</html>
