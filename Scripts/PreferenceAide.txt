@@ -1,24 +1,34 @@
 USE [projet2Bdd]
 GO
-/****** Object:  Table [dbo].[PreferenceAide]    Script Date: 22/01/2021 10:44:31 ******/
+
+/****** Object:  Table [dbo].[PreferenceAide]    Script Date: 25/01/2021 17:53:44 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE TABLE [dbo].[PreferenceAide](
 	[DateDebutChoixPrefAide] [date] NULL,
 	[DateFinChoixPrefAide] [date] NULL,
 	[IdTypeAide] [int] NULL,
-	[NumCompte] [int] NULL
+	[NumCompte] [int] NULL,
+	[IdPA] [int] NOT NULL primary key identity (1,1),
 ) ON [PRIMARY]
 GO
+
 ALTER TABLE [dbo].[PreferenceAide]  WITH CHECK ADD  CONSTRAINT [FK_PreferenceAide_TypeAide] FOREIGN KEY([IdTypeAide])
 REFERENCES [dbo].[TypeAide] ([IdTypeAide])
 GO
+
 ALTER TABLE [dbo].[PreferenceAide] CHECK CONSTRAINT [FK_PreferenceAide_TypeAide]
 GO
+
 ALTER TABLE [dbo].[PreferenceAide]  WITH CHECK ADD  CONSTRAINT [FK_PreferenceAide_Utilisateur] FOREIGN KEY([NumCompte])
 REFERENCES [dbo].[Utilisateur] ([NumCompte])
 GO
+
 ALTER TABLE [dbo].[PreferenceAide] CHECK CONSTRAINT [FK_PreferenceAide_Utilisateur]
 GO
+
+

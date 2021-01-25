@@ -1,0 +1,1263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="projet2BddModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssociationPreferenceJour">
+          <Key>
+            <PropertyRef Name="Idapj" />
+          </Key>
+          <Property Name="DateChoix" Type="date" />
+          <Property Name="DateRenoncementChoix" Type="date" />
+          <Property Name="HeureDebutDispo" Type="time" Precision="7" />
+          <Property Name="HeureFinDispo" Type="time" Precision="7" />
+          <Property Name="NumCompte" Type="int" />
+          <Property Name="IdJour" Type="int" />
+          <Property Name="Idapj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BesoinMateriel">
+          <Key>
+            <PropertyRef Name="IdBM" />
+          </Key>
+          <Property Name="QuantiteMateriel" Type="int" />
+          <Property Name="IdTypeMateriel" Type="int" />
+          <Property Name="IdTypeAide" Type="int" />
+          <Property Name="IdBM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategorieAide">
+          <Key>
+            <PropertyRef Name="IdCategorie" />
+          </Key>
+          <Property Name="IdCategorie" Type="int" Nullable="false" />
+          <Property Name="LibelleCategorie" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CodePostal">
+          <Key>
+            <PropertyRef Name="IdCodePostal" />
+          </Key>
+          <Property Name="IdCodePostal" Type="int" Nullable="false" />
+          <Property Name="CodePostal" Type="int" />
+        </EntityType>
+        <EntityType Name="DemandeAide">
+          <Key>
+            <PropertyRef Name="NumDemandeAide" />
+          </Key>
+          <Property Name="NumDemandeAide" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="10" />
+          <Property Name="DateDepotDemande" Type="nchar" MaxLength="10" />
+          <Property Name="NoteBeneficiaire" Type="nchar" MaxLength="10" />
+          <Property Name="NoteVolontaire" Type="nchar" MaxLength="10" />
+          <Property Name="DateAnnulationDemande" Type="nchar" MaxLength="10" />
+          <Property Name="DateTraitement" Type="nchar" MaxLength="10" />
+          <Property Name="NumCompte" Type="int" />
+          <Property Name="IdTypeAide" Type="int" />
+        </EntityType>
+        <EntityType Name="DemandeMateriel">
+          <Key>
+            <PropertyRef Name="IdDM" />
+          </Key>
+          <Property Name="Quantite" Type="int" />
+          <Property Name="NumDemandeAide" Type="int" />
+          <Property Name="IdTypeMateriel" Type="int" />
+          <Property Name="IdDM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jour">
+          <Key>
+            <PropertyRef Name="IdJour" />
+          </Key>
+          <Property Name="IdJour" Type="int" Nullable="false" />
+          <Property Name="LibelleJour" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="IdPays" />
+          </Key>
+          <Property Name="IdPays" Type="int" Nullable="false" />
+          <Property Name="LibellePays" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="PreferenceAide">
+          <Key>
+            <PropertyRef Name="IdPA" />
+          </Key>
+          <Property Name="DateDebutChoixPrefAide" Type="date" />
+          <Property Name="DateFinChoixPrefAide" Type="date" />
+          <Property Name="IdTypeAide" Type="int" />
+          <Property Name="NumCompte" Type="int" />
+          <Property Name="IdPA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreferenceCategorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DateDebutChoixCategorie" Type="date" />
+          <Property Name="DateFinChoixCategorie" Type="date" />
+          <Property Name="IdCategorie" Type="int" />
+          <Property Name="NumCompte" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Repondre">
+          <Key>
+            <PropertyRef Name="IdREP" />
+          </Key>
+          <Property Name="DateReponse" Type="date" />
+          <Property Name="DateRenonciation" Type="date" />
+          <Property Name="NumDemandeAide" Type="int" />
+          <Property Name="NumCompte" Type="int" />
+          <Property Name="IdREP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeAide">
+          <Key>
+            <PropertyRef Name="IdTypeAide" />
+          </Key>
+          <Property Name="IdTypeAide" Type="int" Nullable="false" />
+          <Property Name="LibelleAide" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdCategorie" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeMateriel">
+          <Key>
+            <PropertyRef Name="IdTypeMateriel" />
+          </Key>
+          <Property Name="IdTypeMateriel" Type="int" Nullable="false" />
+          <Property Name="LibelleTypeMateriel" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="NumCompte" />
+          </Key>
+          <Property Name="NumCompte" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateDeNaissance" Type="date" />
+          <Property Name="DenominationRue" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumeroTelephone" Type="int" />
+          <Property Name="NumeroPortable" Type="int" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateInscription" Type="date" />
+          <Property Name="DateDeinscription" Type="date" />
+          <Property Name="IdVille" Type="int" />
+        </EntityType>
+        <EntityType Name="Ville">
+          <Key>
+            <PropertyRef Name="IdVille" />
+          </Key>
+          <Property Name="IdVille" Type="int" Nullable="false" />
+          <Property Name="LibelleVille" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdPays" Type="int" />
+          <Property Name="IdCodePostal" Type="int" />
+        </EntityType>
+        <Association Name="FK_AssociationPreferenceJour_JourBis">
+          <End Role="Jour" Type="Self.Jour" Multiplicity="0..1" />
+          <End Role="AssociationPreferenceJour" Type="Self.AssociationPreferenceJour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jour">
+              <PropertyRef Name="IdJour" />
+            </Principal>
+            <Dependent Role="AssociationPreferenceJour">
+              <PropertyRef Name="IdJour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationPreferenceJour_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="AssociationPreferenceJour" Type="Self.AssociationPreferenceJour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="AssociationPreferenceJour">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BesoinMateriel_TypeAide">
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="0..1" />
+          <End Role="BesoinMateriel" Type="Self.BesoinMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="BesoinMateriel">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BesoinMateriel_TypeMateriel">
+          <End Role="TypeMateriel" Type="Self.TypeMateriel" Multiplicity="0..1" />
+          <End Role="BesoinMateriel" Type="Self.BesoinMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Principal>
+            <Dependent Role="BesoinMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeAide_TypeAide">
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="0..1" />
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="DemandeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeAide_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="DemandeAide">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeMateriel_DemandeAide">
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="0..1" />
+          <End Role="DemandeMateriel" Type="Self.DemandeMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DemandeAide">
+              <PropertyRef Name="NumDemandeAide" />
+            </Principal>
+            <Dependent Role="DemandeMateriel">
+              <PropertyRef Name="NumDemandeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeMateriel_TypeMateriel">
+          <End Role="TypeMateriel" Type="Self.TypeMateriel" Multiplicity="0..1" />
+          <End Role="DemandeMateriel" Type="Self.DemandeMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Principal>
+            <Dependent Role="DemandeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceAide_TypeAide">
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="0..1" />
+          <End Role="PreferenceAide" Type="Self.PreferenceAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="PreferenceAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceAide_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="PreferenceAide" Type="Self.PreferenceAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="PreferenceAide">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceCategorie_CategorieAide">
+          <End Role="CategorieAide" Type="Self.CategorieAide" Multiplicity="0..1" />
+          <End Role="PreferenceCategorie" Type="Self.PreferenceCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieAide">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="PreferenceCategorie">
+              <PropertyRef Name="IdCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceCategorie_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="PreferenceCategorie" Type="Self.PreferenceCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="PreferenceCategorie">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repondre_DemandeAide">
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="0..1" />
+          <End Role="Repondre" Type="Self.Repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DemandeAide">
+              <PropertyRef Name="NumDemandeAide" />
+            </Principal>
+            <Dependent Role="Repondre">
+              <PropertyRef Name="NumDemandeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repondre_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Repondre" Type="Self.Repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="Repondre">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeAide_CategorieAide">
+          <End Role="CategorieAide" Type="Self.CategorieAide" Multiplicity="1" />
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieAide">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="TypeAide">
+              <PropertyRef Name="IdCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Ville">
+          <End Role="Ville" Type="Self.Ville" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ville">
+              <PropertyRef Name="IdVille" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="IdVille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ville_CodePostal">
+          <End Role="CodePostal" Type="Self.CodePostal" Multiplicity="0..1" />
+          <End Role="Ville" Type="Self.Ville" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodePostal">
+              <PropertyRef Name="IdCodePostal" />
+            </Principal>
+            <Dependent Role="Ville">
+              <PropertyRef Name="IdCodePostal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ville_Pays">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="0..1" />
+          <End Role="Ville" Type="Self.Ville" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="IdPays" />
+            </Principal>
+            <Dependent Role="Ville">
+              <PropertyRef Name="IdPays" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="projet2BddModelStoreContainer">
+          <EntitySet Name="AssociationPreferenceJour" EntityType="Self.AssociationPreferenceJour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BesoinMateriel" EntityType="Self.BesoinMateriel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategorieAide" EntityType="Self.CategorieAide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodePostal" EntityType="Self.CodePostal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemandeAide" EntityType="Self.DemandeAide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemandeMateriel" EntityType="Self.DemandeMateriel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jour" EntityType="Self.Jour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreferenceAide" EntityType="Self.PreferenceAide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreferenceCategorie" EntityType="Self.PreferenceCategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repondre" EntityType="Self.Repondre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAide" EntityType="Self.TypeAide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeMateriel" EntityType="Self.TypeMateriel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ville" EntityType="Self.Ville" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AssociationPreferenceJour_JourBis" Association="Self.FK_AssociationPreferenceJour_JourBis">
+            <End Role="Jour" EntitySet="Jour" />
+            <End Role="AssociationPreferenceJour" EntitySet="AssociationPreferenceJour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationPreferenceJour_Utilisateur" Association="Self.FK_AssociationPreferenceJour_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="AssociationPreferenceJour" EntitySet="AssociationPreferenceJour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BesoinMateriel_TypeAide" Association="Self.FK_BesoinMateriel_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="BesoinMateriel" EntitySet="BesoinMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BesoinMateriel_TypeMateriel" Association="Self.FK_BesoinMateriel_TypeMateriel">
+            <End Role="TypeMateriel" EntitySet="TypeMateriel" />
+            <End Role="BesoinMateriel" EntitySet="BesoinMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeAide_TypeAide" Association="Self.FK_DemandeAide_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeAide_Utilisateur" Association="Self.FK_DemandeAide_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeMateriel_DemandeAide" Association="Self.FK_DemandeMateriel_DemandeAide">
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+            <End Role="DemandeMateriel" EntitySet="DemandeMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeMateriel_TypeMateriel" Association="Self.FK_DemandeMateriel_TypeMateriel">
+            <End Role="TypeMateriel" EntitySet="TypeMateriel" />
+            <End Role="DemandeMateriel" EntitySet="DemandeMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceAide_TypeAide" Association="Self.FK_PreferenceAide_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="PreferenceAide" EntitySet="PreferenceAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceAide_Utilisateur" Association="Self.FK_PreferenceAide_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="PreferenceAide" EntitySet="PreferenceAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceCategorie_CategorieAide" Association="Self.FK_PreferenceCategorie_CategorieAide">
+            <End Role="CategorieAide" EntitySet="CategorieAide" />
+            <End Role="PreferenceCategorie" EntitySet="PreferenceCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceCategorie_Utilisateur" Association="Self.FK_PreferenceCategorie_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="PreferenceCategorie" EntitySet="PreferenceCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repondre_DemandeAide" Association="Self.FK_Repondre_DemandeAide">
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+            <End Role="Repondre" EntitySet="Repondre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repondre_Utilisateur" Association="Self.FK_Repondre_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Repondre" EntitySet="Repondre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeAide_CategorieAide" Association="Self.FK_TypeAide_CategorieAide">
+            <End Role="CategorieAide" EntitySet="CategorieAide" />
+            <End Role="TypeAide" EntitySet="TypeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Ville" Association="Self.FK_Utilisateur_Ville">
+            <End Role="Ville" EntitySet="Ville" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ville_CodePostal" Association="Self.FK_Ville_CodePostal">
+            <End Role="CodePostal" EntitySet="CodePostal" />
+            <End Role="Ville" EntitySet="Ville" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ville_Pays" Association="Self.FK_Ville_Pays">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Ville" EntitySet="Ville" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projet2BddModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategorieAide">
+          <Key>
+            <PropertyRef Name="IdCategorie" />
+          </Key>
+          <Property Name="IdCategorie" Type="Int32" Nullable="false" />
+          <Property Name="LibelleCategorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TypeAide" Relationship="Self.FK_TypeAide_CategorieAide" FromRole="CategorieAide" ToRole="TypeAide" />
+          <NavigationProperty Name="PreferenceCategorie" Relationship="projet2BddModel.FK_PreferenceCategorie_CategorieAide" FromRole="CategorieAide" ToRole="PreferenceCategorie" />
+        </EntityType>
+        <EntityType Name="CodePostal">
+          <Key>
+            <PropertyRef Name="IdCodePostal" />
+          </Key>
+          <Property Name="IdCodePostal" Type="Int32" Nullable="false" />
+          <Property Name="CodePostal1" Type="Int32" />
+          <NavigationProperty Name="Ville" Relationship="Self.FK_Ville_CodePostal" FromRole="CodePostal" ToRole="Ville" />
+        </EntityType>
+        <EntityType Name="DemandeAide">
+          <Key>
+            <PropertyRef Name="NumDemandeAide" />
+          </Key>
+          <Property Name="NumDemandeAide" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DateDepotDemande" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NoteBeneficiaire" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NoteVolontaire" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DateAnnulationDemande" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DateTraitement" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NumCompte" Type="Int32" />
+          <Property Name="IdTypeAide" Type="Int32" />
+          <NavigationProperty Name="TypeAide" Relationship="Self.FK_DemandeAide_TypeAide" FromRole="DemandeAide" ToRole="TypeAide" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_DemandeAide_Utilisateur" FromRole="DemandeAide" ToRole="Utilisateur" />
+          <NavigationProperty Name="DemandeMateriel" Relationship="projet2BddModel.FK_DemandeMateriel_DemandeAide" FromRole="DemandeAide" ToRole="DemandeMateriel" />
+          <NavigationProperty Name="Repondre" Relationship="projet2BddModel.FK_Repondre_DemandeAide" FromRole="DemandeAide" ToRole="Repondre" />
+        </EntityType>
+        <EntityType Name="Jour">
+          <Key>
+            <PropertyRef Name="IdJour" />
+          </Key>
+          <Property Name="IdJour" Type="Int32" Nullable="false" />
+          <Property Name="LibelleJour" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="AssociationPreferenceJour" Relationship="projet2BddModel.FK_AssociationPreferenceJour_JourBis" FromRole="Jour" ToRole="AssociationPreferenceJour" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="IdPays" />
+          </Key>
+          <Property Name="IdPays" Type="Int32" Nullable="false" />
+          <Property Name="LibellePays" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Ville" Relationship="Self.FK_Ville_Pays" FromRole="Pays" ToRole="Ville" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeAide">
+          <Key>
+            <PropertyRef Name="IdTypeAide" />
+          </Key>
+          <Property Name="IdTypeAide" Type="Int32" Nullable="false" />
+          <Property Name="LibelleAide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCategorie" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CategorieAide" Relationship="Self.FK_TypeAide_CategorieAide" FromRole="TypeAide" ToRole="CategorieAide" />
+          <NavigationProperty Name="DemandeAide" Relationship="Self.FK_DemandeAide_TypeAide" FromRole="TypeAide" ToRole="DemandeAide" />
+          <NavigationProperty Name="BesoinMateriel" Relationship="projet2BddModel.FK_BesoinMateriel_TypeAide" FromRole="TypeAide" ToRole="BesoinMateriel" />
+          <NavigationProperty Name="PreferenceAide" Relationship="projet2BddModel.FK_PreferenceAide_TypeAide" FromRole="TypeAide" ToRole="PreferenceAide" />
+        </EntityType>
+        <EntityType Name="TypeMateriel">
+          <Key>
+            <PropertyRef Name="IdTypeMateriel" />
+          </Key>
+          <Property Name="IdTypeMateriel" Type="Int32" Nullable="false" />
+          <Property Name="LibelleTypeMateriel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BesoinMateriel" Relationship="projet2BddModel.FK_BesoinMateriel_TypeMateriel" FromRole="TypeMateriel" ToRole="BesoinMateriel" />
+          <NavigationProperty Name="DemandeMateriel" Relationship="projet2BddModel.FK_DemandeMateriel_TypeMateriel" FromRole="TypeMateriel" ToRole="DemandeMateriel" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="NumCompte" />
+          </Key>
+          <Property Name="NumCompte" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateDeNaissance" Type="DateTime" Precision="0" />
+          <Property Name="DenominationRue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroTelephone" Type="Int32" />
+          <Property Name="NumeroPortable" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateInscription" Type="DateTime" Precision="0" />
+          <Property Name="DateDeinscription" Type="DateTime" Precision="0" />
+          <Property Name="IdVille" Type="Int32" />
+          <NavigationProperty Name="DemandeAide" Relationship="Self.FK_DemandeAide_Utilisateur" FromRole="Utilisateur" ToRole="DemandeAide" />
+          <NavigationProperty Name="Ville" Relationship="Self.FK_Utilisateur_Ville" FromRole="Utilisateur" ToRole="Ville" />
+          <NavigationProperty Name="PreferenceCategorie" Relationship="projet2BddModel.FK_PreferenceCategorie_Utilisateur" FromRole="Utilisateur" ToRole="PreferenceCategorie" />
+          <NavigationProperty Name="AssociationPreferenceJour" Relationship="projet2BddModel.FK_AssociationPreferenceJour_Utilisateur" FromRole="Utilisateur" ToRole="AssociationPreferenceJour" />
+          <NavigationProperty Name="PreferenceAide" Relationship="projet2BddModel.FK_PreferenceAide_Utilisateur" FromRole="Utilisateur" ToRole="PreferenceAide" />
+          <NavigationProperty Name="Repondre" Relationship="projet2BddModel.FK_Repondre_Utilisateur" FromRole="Utilisateur" ToRole="Repondre" />
+        </EntityType>
+        <EntityType Name="Ville">
+          <Key>
+            <PropertyRef Name="IdVille" />
+          </Key>
+          <Property Name="IdVille" Type="Int32" Nullable="false" />
+          <Property Name="LibelleVille" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdPays" Type="Int32" />
+          <Property Name="IdCodePostal" Type="Int32" />
+          <NavigationProperty Name="CodePostal" Relationship="Self.FK_Ville_CodePostal" FromRole="Ville" ToRole="CodePostal" />
+          <NavigationProperty Name="Pays" Relationship="Self.FK_Ville_Pays" FromRole="Ville" ToRole="Pays" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Utilisateur_Ville" FromRole="Ville" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_TypeAide_CategorieAide">
+          <End Role="CategorieAide" Type="Self.CategorieAide" Multiplicity="1" />
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieAide">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="TypeAide">
+              <PropertyRef Name="IdCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ville_CodePostal">
+          <End Role="CodePostal" Type="Self.CodePostal" Multiplicity="0..1" />
+          <End Role="Ville" Type="Self.Ville" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodePostal">
+              <PropertyRef Name="IdCodePostal" />
+            </Principal>
+            <Dependent Role="Ville">
+              <PropertyRef Name="IdCodePostal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeAide_TypeAide">
+          <End Role="TypeAide" Type="Self.TypeAide" Multiplicity="0..1" />
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="DemandeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeAide_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="DemandeAide" Type="Self.DemandeAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="DemandeAide">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ville_Pays">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="0..1" />
+          <End Role="Ville" Type="Self.Ville" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="IdPays" />
+            </Principal>
+            <Dependent Role="Ville">
+              <PropertyRef Name="IdPays" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Ville">
+          <End Role="Ville" Type="Self.Ville" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ville">
+              <PropertyRef Name="IdVille" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="IdVille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="projet2BddEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategorieAide" EntityType="Self.CategorieAide" />
+          <EntitySet Name="CodePostal" EntityType="Self.CodePostal" />
+          <EntitySet Name="DemandeAide" EntityType="Self.DemandeAide" />
+          <EntitySet Name="Jour" EntityType="Self.Jour" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeAide" EntityType="Self.TypeAide" />
+          <EntitySet Name="TypeMateriel" EntityType="Self.TypeMateriel" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" />
+          <EntitySet Name="Ville" EntityType="Self.Ville" />
+          <AssociationSet Name="FK_TypeAide_CategorieAide" Association="Self.FK_TypeAide_CategorieAide">
+            <End Role="CategorieAide" EntitySet="CategorieAide" />
+            <End Role="TypeAide" EntitySet="TypeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ville_CodePostal" Association="Self.FK_Ville_CodePostal">
+            <End Role="CodePostal" EntitySet="CodePostal" />
+            <End Role="Ville" EntitySet="Ville" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeAide_TypeAide" Association="Self.FK_DemandeAide_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeAide_Utilisateur" Association="Self.FK_DemandeAide_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ville_Pays" Association="Self.FK_Ville_Pays">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Ville" EntitySet="Ville" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Ville" Association="Self.FK_Utilisateur_Ville">
+            <End Role="Ville" EntitySet="Ville" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(projet2BddModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(projet2BddModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="PreferenceCategorie" EntityType="projet2BddModel.PreferenceCategorie" />
+          <AssociationSet Name="FK_PreferenceCategorie_CategorieAide" Association="projet2BddModel.FK_PreferenceCategorie_CategorieAide">
+            <End Role="CategorieAide" EntitySet="CategorieAide" />
+            <End Role="PreferenceCategorie" EntitySet="PreferenceCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceCategorie_Utilisateur" Association="projet2BddModel.FK_PreferenceCategorie_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="PreferenceCategorie" EntitySet="PreferenceCategorie" />
+          </AssociationSet>
+          <EntitySet Name="AssociationPreferenceJour" EntityType="projet2BddModel.AssociationPreferenceJour" />
+          <AssociationSet Name="FK_AssociationPreferenceJour_JourBis" Association="projet2BddModel.FK_AssociationPreferenceJour_JourBis">
+            <End Role="Jour" EntitySet="Jour" />
+            <End Role="AssociationPreferenceJour" EntitySet="AssociationPreferenceJour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationPreferenceJour_Utilisateur" Association="projet2BddModel.FK_AssociationPreferenceJour_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="AssociationPreferenceJour" EntitySet="AssociationPreferenceJour" />
+          </AssociationSet>
+          <EntitySet Name="BesoinMateriel" EntityType="projet2BddModel.BesoinMateriel" />
+          <AssociationSet Name="FK_BesoinMateriel_TypeAide" Association="projet2BddModel.FK_BesoinMateriel_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="BesoinMateriel" EntitySet="BesoinMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BesoinMateriel_TypeMateriel" Association="projet2BddModel.FK_BesoinMateriel_TypeMateriel">
+            <End Role="TypeMateriel" EntitySet="TypeMateriel" />
+            <End Role="BesoinMateriel" EntitySet="BesoinMateriel" />
+          </AssociationSet>
+          <EntitySet Name="DemandeMateriel" EntityType="projet2BddModel.DemandeMateriel" />
+          <AssociationSet Name="FK_DemandeMateriel_DemandeAide" Association="projet2BddModel.FK_DemandeMateriel_DemandeAide">
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+            <End Role="DemandeMateriel" EntitySet="DemandeMateriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemandeMateriel_TypeMateriel" Association="projet2BddModel.FK_DemandeMateriel_TypeMateriel">
+            <End Role="TypeMateriel" EntitySet="TypeMateriel" />
+            <End Role="DemandeMateriel" EntitySet="DemandeMateriel" />
+          </AssociationSet>
+          <EntitySet Name="PreferenceAide" EntityType="projet2BddModel.PreferenceAide" />
+          <AssociationSet Name="FK_PreferenceAide_TypeAide" Association="projet2BddModel.FK_PreferenceAide_TypeAide">
+            <End Role="TypeAide" EntitySet="TypeAide" />
+            <End Role="PreferenceAide" EntitySet="PreferenceAide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreferenceAide_Utilisateur" Association="projet2BddModel.FK_PreferenceAide_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="PreferenceAide" EntitySet="PreferenceAide" />
+          </AssociationSet>
+          <EntitySet Name="Repondre" EntityType="projet2BddModel.Repondre" />
+          <AssociationSet Name="FK_Repondre_DemandeAide" Association="projet2BddModel.FK_Repondre_DemandeAide">
+            <End Role="DemandeAide" EntitySet="DemandeAide" />
+            <End Role="Repondre" EntitySet="Repondre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repondre_Utilisateur" Association="projet2BddModel.FK_Repondre_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Repondre" EntitySet="Repondre" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="PreferenceCategorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DateDebutChoixCategorie" Type="DateTime" Precision="0" />
+          <Property Name="DateFinChoixCategorie" Type="DateTime" Precision="0" />
+          <Property Name="IdCategorie" Type="Int32" />
+          <Property Name="NumCompte" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CategorieAide" Relationship="projet2BddModel.FK_PreferenceCategorie_CategorieAide" FromRole="PreferenceCategorie" ToRole="CategorieAide" />
+          <NavigationProperty Name="Utilisateur" Relationship="projet2BddModel.FK_PreferenceCategorie_Utilisateur" FromRole="PreferenceCategorie" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_PreferenceCategorie_CategorieAide">
+          <End Type="projet2BddModel.CategorieAide" Role="CategorieAide" Multiplicity="0..1" />
+          <End Type="projet2BddModel.PreferenceCategorie" Role="PreferenceCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieAide">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="PreferenceCategorie">
+              <PropertyRef Name="IdCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceCategorie_Utilisateur">
+          <End Type="projet2BddModel.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="projet2BddModel.PreferenceCategorie" Role="PreferenceCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="PreferenceCategorie">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AssociationPreferenceJour">
+          <Key>
+            <PropertyRef Name="Idapj" />
+          </Key>
+          <Property Name="DateChoix" Type="DateTime" Precision="0" />
+          <Property Name="DateRenoncementChoix" Type="DateTime" Precision="0" />
+          <Property Name="HeureDebutDispo" Type="Time" Precision="7" />
+          <Property Name="HeureFinDispo" Type="Time" Precision="7" />
+          <Property Name="NumCompte" Type="Int32" />
+          <Property Name="IdJour" Type="Int32" />
+          <Property Name="Idapj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Jour" Relationship="projet2BddModel.FK_AssociationPreferenceJour_JourBis" FromRole="AssociationPreferenceJour" ToRole="Jour" />
+          <NavigationProperty Name="Utilisateur" Relationship="projet2BddModel.FK_AssociationPreferenceJour_Utilisateur" FromRole="AssociationPreferenceJour" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_AssociationPreferenceJour_JourBis">
+          <End Type="projet2BddModel.Jour" Role="Jour" Multiplicity="0..1" />
+          <End Type="projet2BddModel.AssociationPreferenceJour" Role="AssociationPreferenceJour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jour">
+              <PropertyRef Name="IdJour" />
+            </Principal>
+            <Dependent Role="AssociationPreferenceJour">
+              <PropertyRef Name="IdJour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationPreferenceJour_Utilisateur">
+          <End Type="projet2BddModel.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="projet2BddModel.AssociationPreferenceJour" Role="AssociationPreferenceJour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="AssociationPreferenceJour">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BesoinMateriel">
+          <Key>
+            <PropertyRef Name="IdBM" />
+          </Key>
+          <Property Name="QuantiteMateriel" Type="Int32" />
+          <Property Name="IdTypeMateriel" Type="Int32" />
+          <Property Name="IdTypeAide" Type="Int32" />
+          <Property Name="IdBM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TypeAide" Relationship="projet2BddModel.FK_BesoinMateriel_TypeAide" FromRole="BesoinMateriel" ToRole="TypeAide" />
+          <NavigationProperty Name="TypeMateriel" Relationship="projet2BddModel.FK_BesoinMateriel_TypeMateriel" FromRole="BesoinMateriel" ToRole="TypeMateriel" />
+        </EntityType>
+        <Association Name="FK_BesoinMateriel_TypeAide">
+          <End Type="projet2BddModel.TypeAide" Role="TypeAide" Multiplicity="0..1" />
+          <End Type="projet2BddModel.BesoinMateriel" Role="BesoinMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="BesoinMateriel">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BesoinMateriel_TypeMateriel">
+          <End Type="projet2BddModel.TypeMateriel" Role="TypeMateriel" Multiplicity="0..1" />
+          <End Type="projet2BddModel.BesoinMateriel" Role="BesoinMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Principal>
+            <Dependent Role="BesoinMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DemandeMateriel">
+          <Key>
+            <PropertyRef Name="IdDM" />
+          </Key>
+          <Property Name="Quantite" Type="Int32" />
+          <Property Name="NumDemandeAide" Type="Int32" />
+          <Property Name="IdTypeMateriel" Type="Int32" />
+          <Property Name="IdDM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DemandeAide" Relationship="projet2BddModel.FK_DemandeMateriel_DemandeAide" FromRole="DemandeMateriel" ToRole="DemandeAide" />
+          <NavigationProperty Name="TypeMateriel" Relationship="projet2BddModel.FK_DemandeMateriel_TypeMateriel" FromRole="DemandeMateriel" ToRole="TypeMateriel" />
+        </EntityType>
+        <Association Name="FK_DemandeMateriel_DemandeAide">
+          <End Type="projet2BddModel.DemandeAide" Role="DemandeAide" Multiplicity="0..1" />
+          <End Type="projet2BddModel.DemandeMateriel" Role="DemandeMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DemandeAide">
+              <PropertyRef Name="NumDemandeAide" />
+            </Principal>
+            <Dependent Role="DemandeMateriel">
+              <PropertyRef Name="NumDemandeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemandeMateriel_TypeMateriel">
+          <End Type="projet2BddModel.TypeMateriel" Role="TypeMateriel" Multiplicity="0..1" />
+          <End Type="projet2BddModel.DemandeMateriel" Role="DemandeMateriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Principal>
+            <Dependent Role="DemandeMateriel">
+              <PropertyRef Name="IdTypeMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PreferenceAide">
+          <Key>
+            <PropertyRef Name="IdPA" />
+          </Key>
+          <Property Name="DateDebutChoixPrefAide" Type="DateTime" Precision="0" />
+          <Property Name="DateFinChoixPrefAide" Type="DateTime" Precision="0" />
+          <Property Name="IdTypeAide" Type="Int32" />
+          <Property Name="NumCompte" Type="Int32" />
+          <Property Name="IdPA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TypeAide" Relationship="projet2BddModel.FK_PreferenceAide_TypeAide" FromRole="PreferenceAide" ToRole="TypeAide" />
+          <NavigationProperty Name="Utilisateur" Relationship="projet2BddModel.FK_PreferenceAide_Utilisateur" FromRole="PreferenceAide" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_PreferenceAide_TypeAide">
+          <End Type="projet2BddModel.TypeAide" Role="TypeAide" Multiplicity="0..1" />
+          <End Type="projet2BddModel.PreferenceAide" Role="PreferenceAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Principal>
+            <Dependent Role="PreferenceAide">
+              <PropertyRef Name="IdTypeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreferenceAide_Utilisateur">
+          <End Type="projet2BddModel.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="projet2BddModel.PreferenceAide" Role="PreferenceAide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="PreferenceAide">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Repondre">
+          <Key>
+            <PropertyRef Name="IdREP" />
+          </Key>
+          <Property Name="DateReponse" Type="DateTime" Precision="0" />
+          <Property Name="DateRenonciation" Type="DateTime" Precision="0" />
+          <Property Name="NumDemandeAide" Type="Int32" />
+          <Property Name="NumCompte" Type="Int32" />
+          <Property Name="IdREP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DemandeAide" Relationship="projet2BddModel.FK_Repondre_DemandeAide" FromRole="Repondre" ToRole="DemandeAide" />
+          <NavigationProperty Name="Utilisateur" Relationship="projet2BddModel.FK_Repondre_Utilisateur" FromRole="Repondre" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_Repondre_DemandeAide">
+          <End Type="projet2BddModel.DemandeAide" Role="DemandeAide" Multiplicity="0..1" />
+          <End Type="projet2BddModel.Repondre" Role="Repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DemandeAide">
+              <PropertyRef Name="NumDemandeAide" />
+            </Principal>
+            <Dependent Role="Repondre">
+              <PropertyRef Name="NumDemandeAide" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repondre_Utilisateur">
+          <End Type="projet2BddModel.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="projet2BddModel.Repondre" Role="Repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="NumCompte" />
+            </Principal>
+            <Dependent Role="Repondre">
+              <PropertyRef Name="NumCompte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projet2BddModelStoreContainer" CdmEntityContainer="projet2BddEntities">
+          <EntitySetMapping Name="CategorieAide">
+            <EntityTypeMapping TypeName="projet2BddModel.CategorieAide">
+              <MappingFragment StoreEntitySet="CategorieAide">
+                <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
+                <ScalarProperty Name="LibelleCategorie" ColumnName="LibelleCategorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodePostal">
+            <EntityTypeMapping TypeName="projet2BddModel.CodePostal">
+              <MappingFragment StoreEntitySet="CodePostal">
+                <ScalarProperty Name="IdCodePostal" ColumnName="IdCodePostal" />
+                <ScalarProperty Name="CodePostal1" ColumnName="CodePostal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemandeAide">
+            <EntityTypeMapping TypeName="projet2BddModel.DemandeAide">
+              <MappingFragment StoreEntitySet="DemandeAide">
+                <ScalarProperty Name="NumDemandeAide" ColumnName="NumDemandeAide" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDepotDemande" ColumnName="DateDepotDemande" />
+                <ScalarProperty Name="NoteBeneficiaire" ColumnName="NoteBeneficiaire" />
+                <ScalarProperty Name="NoteVolontaire" ColumnName="NoteVolontaire" />
+                <ScalarProperty Name="DateAnnulationDemande" ColumnName="DateAnnulationDemande" />
+                <ScalarProperty Name="DateTraitement" ColumnName="DateTraitement" />
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="IdTypeAide" ColumnName="IdTypeAide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jour">
+            <EntityTypeMapping TypeName="projet2BddModel.Jour">
+              <MappingFragment StoreEntitySet="Jour">
+                <ScalarProperty Name="IdJour" ColumnName="IdJour" />
+                <ScalarProperty Name="LibelleJour" ColumnName="LibelleJour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pays">
+            <EntityTypeMapping TypeName="projet2BddModel.Pays">
+              <MappingFragment StoreEntitySet="Pays">
+                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
+                <ScalarProperty Name="LibellePays" ColumnName="LibellePays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="projet2BddModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAide">
+            <EntityTypeMapping TypeName="projet2BddModel.TypeAide">
+              <MappingFragment StoreEntitySet="TypeAide">
+                <ScalarProperty Name="IdTypeAide" ColumnName="IdTypeAide" />
+                <ScalarProperty Name="LibelleAide" ColumnName="LibelleAide" />
+                <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeMateriel">
+            <EntityTypeMapping TypeName="projet2BddModel.TypeMateriel">
+              <MappingFragment StoreEntitySet="TypeMateriel">
+                <ScalarProperty Name="IdTypeMateriel" ColumnName="IdTypeMateriel" />
+                <ScalarProperty Name="LibelleTypeMateriel" ColumnName="LibelleTypeMateriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateur">
+            <EntityTypeMapping TypeName="projet2BddModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateDeNaissance" ColumnName="DateDeNaissance" />
+                <ScalarProperty Name="DenominationRue" ColumnName="DenominationRue" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumeroTelephone" ColumnName="NumeroTelephone" />
+                <ScalarProperty Name="NumeroPortable" ColumnName="NumeroPortable" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DateInscription" ColumnName="DateInscription" />
+                <ScalarProperty Name="DateDeinscription" ColumnName="DateDeinscription" />
+                <ScalarProperty Name="IdVille" ColumnName="IdVille" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ville">
+            <EntityTypeMapping TypeName="projet2BddModel.Ville">
+              <MappingFragment StoreEntitySet="Ville">
+                <ScalarProperty Name="IdVille" ColumnName="IdVille" />
+                <ScalarProperty Name="LibelleVille" ColumnName="LibelleVille" />
+                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
+                <ScalarProperty Name="IdCodePostal" ColumnName="IdCodePostal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="projet2BddModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="projet2BddModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="projet2BddModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="projet2BddModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="projet2BddModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="projet2BddModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="projet2BddModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="projet2BddModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="projet2BddModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="PreferenceCategorie">
+            <EntityTypeMapping TypeName="projet2BddModel.PreferenceCategorie">
+              <MappingFragment StoreEntitySet="PreferenceCategorie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
+                <ScalarProperty Name="DateFinChoixCategorie" ColumnName="DateFinChoixCategorie" />
+                <ScalarProperty Name="DateDebutChoixCategorie" ColumnName="DateDebutChoixCategorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssociationPreferenceJour">
+            <EntityTypeMapping TypeName="projet2BddModel.AssociationPreferenceJour">
+              <MappingFragment StoreEntitySet="AssociationPreferenceJour">
+                <ScalarProperty Name="Idapj" ColumnName="Idapj" />
+                <ScalarProperty Name="IdJour" ColumnName="IdJour" />
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="HeureFinDispo" ColumnName="HeureFinDispo" />
+                <ScalarProperty Name="HeureDebutDispo" ColumnName="HeureDebutDispo" />
+                <ScalarProperty Name="DateRenoncementChoix" ColumnName="DateRenoncementChoix" />
+                <ScalarProperty Name="DateChoix" ColumnName="DateChoix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BesoinMateriel">
+            <EntityTypeMapping TypeName="projet2BddModel.BesoinMateriel">
+              <MappingFragment StoreEntitySet="BesoinMateriel">
+                <ScalarProperty Name="IdBM" ColumnName="IdBM" />
+                <ScalarProperty Name="IdTypeAide" ColumnName="IdTypeAide" />
+                <ScalarProperty Name="IdTypeMateriel" ColumnName="IdTypeMateriel" />
+                <ScalarProperty Name="QuantiteMateriel" ColumnName="QuantiteMateriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemandeMateriel">
+            <EntityTypeMapping TypeName="projet2BddModel.DemandeMateriel">
+              <MappingFragment StoreEntitySet="DemandeMateriel">
+                <ScalarProperty Name="IdDM" ColumnName="IdDM" />
+                <ScalarProperty Name="IdTypeMateriel" ColumnName="IdTypeMateriel" />
+                <ScalarProperty Name="NumDemandeAide" ColumnName="NumDemandeAide" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreferenceAide">
+            <EntityTypeMapping TypeName="projet2BddModel.PreferenceAide">
+              <MappingFragment StoreEntitySet="PreferenceAide">
+                <ScalarProperty Name="IdPA" ColumnName="IdPA" />
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="IdTypeAide" ColumnName="IdTypeAide" />
+                <ScalarProperty Name="DateFinChoixPrefAide" ColumnName="DateFinChoixPrefAide" />
+                <ScalarProperty Name="DateDebutChoixPrefAide" ColumnName="DateDebutChoixPrefAide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repondre">
+            <EntityTypeMapping TypeName="projet2BddModel.Repondre">
+              <MappingFragment StoreEntitySet="Repondre">
+                <ScalarProperty Name="IdREP" ColumnName="IdREP" />
+                <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+                <ScalarProperty Name="NumDemandeAide" ColumnName="NumDemandeAide" />
+                <ScalarProperty Name="DateRenonciation" ColumnName="DateRenonciation" />
+                <ScalarProperty Name="DateReponse" ColumnName="DateReponse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
