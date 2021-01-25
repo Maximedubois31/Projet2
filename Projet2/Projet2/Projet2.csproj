@@ -175,7 +175,7 @@
     <Compile Include="Models\Authentification.cs" />
     <Compile Include="Models\Demande.cs" />
     <Compile Include="Models\Home.cs" />
-    <Compile Include="Models\Utilisateur.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Pays.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
