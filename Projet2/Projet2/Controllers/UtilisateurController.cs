@@ -13,7 +13,19 @@ namespace Projet2.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult Inscription(string txtNom, string txtPrenom, string dateNaissance, string txtEmail, string tel, string portable, string txtLogin, string password)
+        {
+            ViewBag.Nom = txtNom;
+            ViewBag.Prenom = txtPrenom;
+            ViewBag.DateNaissance = dateNaissance;
+            ViewBag.Email = txtEmail;
+            ViewBag.Tel = tel;
+            ViewBag.Portable = portable;
+            ViewBag.Login = txtLogin;
+            ViewBag.Password = password;
+            return RedirectToAction("Acceuil", "Home");
+        }
         public ActionResult validerInscription()
         {
             return View();

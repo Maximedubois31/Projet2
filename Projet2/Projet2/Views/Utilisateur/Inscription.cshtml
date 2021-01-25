@@ -2,6 +2,25 @@
 @{
     ViewBag.Title = "Inscription";
 }
-
 <h2>Inscription</h2>
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<form method="post">
+    Nom : <input type="text" name="txtNom" maxlength="64" required/>
+    <br />
+    Prénom : <input type="text" name="txtPrenom" maxlength="64" required/>
+    <br />
+    Date de naissance : <input type="date" name="dateNaissance" required/>
+    <br />
+    Email : <input type="email" name="txtEmail" required/>
+    <br />
+    Numéro téléphone : <input type="tel" name="tel" />
+    <br />
+    Numéro téléphone portable : <input type="tel" name="portable" required/>
+    <br />
+    Login : <input type="text" name="txtLogin" required/>
+    <br />
+    Password : <input type="password" name="password" required/>
+    <br />
+    <input type="submit" value="Valider" />
+</form>
 
