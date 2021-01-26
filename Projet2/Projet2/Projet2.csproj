@@ -133,6 +133,7 @@
     <Compile Include="Controllers\DemandeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UtilisateurController.cs" />
+    <Compile Include="DAO\DemandeDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

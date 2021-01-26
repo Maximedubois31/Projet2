@@ -1,9 +1,12 @@
 ﻿
+using Projet2.DAO;
+using Projet2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace Projet2.Controllers
 {
@@ -15,11 +18,24 @@ namespace Projet2.Controllers
             return View();
         }
 
-        //Création d'une connexion
-        SqlConnection cnx = new SqlConnection();
+        public ActionResult Demande(string Description, string dateDepotDemande, int noteBeneficiaire, int noteVolontaire, string dateAnnulationDemande, string dateTraitement)
+        {
+            Demande d = new Demande();
+            d.Description = Description;
+            d.dateDepotDemande = dateDepotDemande;
+            d.noteBeneficiaire = noteBeneficiaire;
+            d.noteVolontaire = noteVolontaire;
+            d.dateAnnulationDemande = dateAnnulationDemande;
+            d.dateTraitement = dateTraitement;
+            
 
+            DemandeDAO demandeDao = new DemandeDAO();
+            demandeDao.Inserer(d);
 
-        public ActionResult validerNouvelleDemande()
+            return RedirectToAction("Acceuil", "Home");
+        }
+
+            public ActionResult validerNouvelleDemande()
         {
             return View();
         }
