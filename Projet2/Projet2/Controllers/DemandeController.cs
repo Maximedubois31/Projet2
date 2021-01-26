@@ -15,6 +15,10 @@ namespace Projet2.Controllers
             return View();
         }
 
+        //Création d'une connexion
+        SqlConnection cnx = new SqlConnection();
+
+
         public ActionResult validerNouvelleDemande()
         {
             return View();

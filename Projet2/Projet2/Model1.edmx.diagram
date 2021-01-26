@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1090478716da4dad918c56db6147179e" Name="Diagram1">
         <EntityTypeShape EntityType="projet2BddModel.CategorieAide" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="projet2BddModel.CodePostal" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projet2BddModel.b" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="projet2BddModel.DemandeAide" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="projet2BddModel.Jour" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="projet2BddModel.Pays" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
