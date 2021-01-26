@@ -17,5 +17,10 @@ namespace Projet2.Controllers
         {
             return View();
         }
+
+        public ActionResult Acceuil()
+        {
+            return View();
+        }
     }
 }

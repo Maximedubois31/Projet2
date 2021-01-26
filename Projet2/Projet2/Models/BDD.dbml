@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="projet2Bdd" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=projet2Bdd;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="projet2BddConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AssociationPreferenceJour" Member="AssociationPreferenceJour">
+    <Type Name="AssociationPreferenceJour">
+      <Column Name="DateChoix" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateRenoncementChoix" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HeureDebutDispo" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HeureFinDispo" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdJour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Idapj" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Jour_AssociationPreferenceJour" Member="Jour" ThisKey="IdJour" OtherKey="IdJour" Type="Jour" IsForeignKey="true" />
+      <Association Name="Utilisateur_AssociationPreferenceJour" Member="Utilisateur" ThisKey="NumCompte" OtherKey="NumCompte" Type="Utilisateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BesoinMateriel" Member="BesoinMateriel">
+    <Type Name="BesoinMateriel">
+      <Column Name="QuantiteMateriel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTypeMateriel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTypeAide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdBM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="TypeAide_BesoinMateriel" Member="TypeAide" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="TypeAide" IsForeignKey="true" />
+      <Association Name="TypeMateriel_BesoinMateriel" Member="TypeMateriel" ThisKey="IdTypeMateriel" OtherKey="IdTypeMateriel" Type="TypeMateriel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategorieAide" Member="CategorieAide">
+    <Type Name="CategorieAide">
+      <Column Name="IdCategorie" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibelleCategorie" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CategorieAide_PreferenceCategorie" Member="PreferenceCategorie" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="PreferenceCategorie" />
+      <Association Name="CategorieAide_TypeAide" Member="TypeAide" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="TypeAide" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CodePostal" Member="CodePostal">
+    <Type Name="CodePostal">
+      <Column Name="IdCodePostal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodePostal" Member="CodePostal1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CodePostal_Ville" Member="Ville" ThisKey="IdCodePostal" OtherKey="IdCodePostal" Type="Ville" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DemandeMateriel" Member="DemandeMateriel">
+    <Type Name="DemandeMateriel">
+      <Column Name="Quantite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumDemandeAide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTypeMateriel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdDM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="TypeMateriel_DemandeMateriel" Member="TypeMateriel" ThisKey="IdTypeMateriel" OtherKey="IdTypeMateriel" Type="TypeMateriel" IsForeignKey="true" />
+      <Association Name="DemandeAide_DemandeMateriel" Member="DemandeAide" ThisKey="NumDemandeAide" OtherKey="NumDemandeAide" Type="DemandeAide" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Jour" Member="Jour">
+    <Type Name="Jour">
+      <Column Name="IdJour" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibelleJour" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Jour_AssociationPreferenceJour" Member="AssociationPreferenceJour" ThisKey="IdJour" OtherKey="IdJour" Type="AssociationPreferenceJour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pays" Member="Pays">
+    <Type Name="Pays">
+      <Column Name="IdPays" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibellePays" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Pays_Ville" Member="Ville" ThisKey="IdPays" OtherKey="IdPays" Type="Ville" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreferenceAide" Member="PreferenceAide">
+    <Type Name="PreferenceAide">
+      <Column Name="DateDebutChoixPrefAide" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateFinChoixPrefAide" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdTypeAide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdPA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="TypeAide_PreferenceAide" Member="TypeAide" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="TypeAide" IsForeignKey="true" />
+      <Association Name="Utilisateur_PreferenceAide" Member="Utilisateur" ThisKey="NumCompte" OtherKey="NumCompte" Type="Utilisateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreferenceCategorie" Member="PreferenceCategorie">
+    <Type Name="PreferenceCategorie">
+      <Column Name="DateDebutChoixCategorie" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateFinChoixCategorie" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdCategorie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="CategorieAide_PreferenceCategorie" Member="CategorieAide" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="CategorieAide" IsForeignKey="true" />
+      <Association Name="Utilisateur_PreferenceCategorie" Member="Utilisateur" ThisKey="NumCompte" OtherKey="NumCompte" Type="Utilisateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Repondre" Member="Repondre">
+    <Type Name="Repondre">
+      <Column Name="DateReponse" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateRenonciation" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NumDemandeAide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdREP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Utilisateur_Repondre" Member="Utilisateur" ThisKey="NumCompte" OtherKey="NumCompte" Type="Utilisateur" IsForeignKey="true" />
+      <Association Name="DemandeAide_Repondre" Member="DemandeAide" ThisKey="NumDemandeAide" OtherKey="NumDemandeAide" Type="DemandeAide" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeAide" Member="TypeAide">
+    <Type Name="TypeAide">
+      <Column Name="IdTypeAide" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibelleAide" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdCategorie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TypeAide_BesoinMateriel" Member="BesoinMateriel" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="BesoinMateriel" />
+      <Association Name="TypeAide_PreferenceAide" Member="PreferenceAide" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="PreferenceAide" />
+      <Association Name="TypeAide_DemandeAide" Member="DemandeAide" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="DemandeAide" />
+      <Association Name="CategorieAide_TypeAide" Member="CategorieAide" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="CategorieAide" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeMateriel" Member="TypeMateriel">
+    <Type Name="TypeMateriel">
+      <Column Name="IdTypeMateriel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibelleTypeMateriel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TypeMateriel_BesoinMateriel" Member="BesoinMateriel" ThisKey="IdTypeMateriel" OtherKey="IdTypeMateriel" Type="BesoinMateriel" />
+      <Association Name="TypeMateriel_DemandeMateriel" Member="DemandeMateriel" ThisKey="IdTypeMateriel" OtherKey="IdTypeMateriel" Type="DemandeMateriel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Utilisateur" Member="Utilisateur">
+    <Type Name="Utilisateur">
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateDeNaissance" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DenominationRue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroTelephone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroPortable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateInscription" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateDeinscription" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdVille" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Utilisateur_AssociationPreferenceJour" Member="AssociationPreferenceJour" ThisKey="NumCompte" OtherKey="NumCompte" Type="AssociationPreferenceJour" />
+      <Association Name="Utilisateur_PreferenceAide" Member="PreferenceAide" ThisKey="NumCompte" OtherKey="NumCompte" Type="PreferenceAide" />
+      <Association Name="Utilisateur_PreferenceCategorie" Member="PreferenceCategorie" ThisKey="NumCompte" OtherKey="NumCompte" Type="PreferenceCategorie" />
+      <Association Name="Utilisateur_Repondre" Member="Repondre" ThisKey="NumCompte" OtherKey="NumCompte" Type="Repondre" />
+      <Association Name="Utilisateur_DemandeAide" Member="DemandeAide" ThisKey="NumCompte" OtherKey="NumCompte" Type="DemandeAide" />
+      <Association Name="Ville_Utilisateur" Member="Ville" ThisKey="IdVille" OtherKey="IdVille" Type="Ville" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ville" Member="Ville">
+    <Type Name="Ville">
+      <Column Name="IdVille" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LibelleVille" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdPays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCodePostal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ville_Utilisateur" Member="Utilisateur" ThisKey="IdVille" OtherKey="IdVille" Type="Utilisateur" />
+      <Association Name="CodePostal_Ville" Member="CodePostal" ThisKey="IdCodePostal" OtherKey="IdCodePostal" Type="CodePostal" IsForeignKey="true" />
+      <Association Name="Pays_Ville" Member="Pays" ThisKey="IdPays" OtherKey="IdPays" Type="Pays" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DemandeAide" Member="DemandeAide">
+    <Type Name="DemandeAide">
+      <Column Name="NumDemandeAide" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateDepotDemande" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NoteBeneficiaire" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NoteVolontaire" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateAnnulationDemande" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateTraitement" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NumCompte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTypeAide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HeureTraitement" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="DemandeAide_DemandeMateriel" Member="DemandeMateriel" ThisKey="NumDemandeAide" OtherKey="NumDemandeAide" Type="DemandeMateriel" />
+      <Association Name="DemandeAide_Repondre" Member="Repondre" ThisKey="NumDemandeAide" OtherKey="NumDemandeAide" Type="Repondre" />
+      <Association Name="TypeAide_DemandeAide" Member="TypeAide" ThisKey="IdTypeAide" OtherKey="IdTypeAide" Type="TypeAide" IsForeignKey="true" />
+      <Association Name="Utilisateur_DemandeAide" Member="Utilisateur" ThisKey="NumCompte" OtherKey="NumCompte" Type="Utilisateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
