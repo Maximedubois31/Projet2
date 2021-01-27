@@ -10,5 +10,43 @@
     ViewBag.Title = "RechercheDemandeAide";
 }
 
-<h2>RechercheDemandeAide</h2>
+<h2>Recherche de demande d'aide</h2>
 
+<table>
+    <thead>
+        <tr>
+            <td>
+                <h3>Type de demande</h3>
+            </td>
+            <td>
+                <h3>Jour de la tâche</h3>
+            </td>
+            <td>
+                <h3>Heure</h3>
+            </td>
+            <td>
+                <h3>Nom bénéficiaire</h3>
+            </td>
+            <td>
+                <h3>Prénom</h3>
+            </td>
+            <td>
+                <h3>Afficher la demande</h3>
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Demande d in ViewBag.Demandes)
+        {
+        <tr>
+            <td>@th.LibelleAide</td>
+            <td>@u.Nom</td>
+            <td>@u.Prenom</td>
+            <td>@d.DateTraitement</td>
+            <td>@d.HeureTraitement</td>
+            <td> <input type="button" value="Voir" /> </td>
+        </tr>
+        }
+        </tbody>
+</table>
