@@ -1,7 +1,49 @@
 ﻿
+@using Projet2.DAO;
+@using Projet2.Models
+@model Projet2.DAO.DemandeDAO
+
 @{
     ViewBag.Title = "RechercheDemandeAide";
 }
 
-<h2>RechercheDemandeAide</h2>
+<h2>Recherche de demande d'aide</h2>
 
+<table>
+    <thead>
+        <tr>
+            <td>
+                <h3>Type de demande</h3>
+            </td>
+            <td>
+                <h3>Jour de la tâche</h3>
+            </td>
+            <td>
+                <h3>Heure</h3>
+            </td>
+            <td>
+                <h3>Description</h3>
+            </td>
+            <td>
+                <h3>Afficher la demande</h3>
+            </td>
+            <td>
+                <h3>Se proposer</h3>
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Demande d in ViewBag.listeDemandes)
+        {
+        <tr>
+            <td>@d.LibelleAide</td>
+            <td>@d.dateTraitement</td>
+            <td>@d.heureTraitement</td>
+            <td>@d.description</td>
+            <td> <input type="button" value="Voir" /> </td>
+            <td> <input type="button" value="Choisir" /> </td>
+        </tr>
+        }
+    </tbody>
+</table>

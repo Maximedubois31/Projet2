@@ -9,6 +9,7 @@ namespace Projet2.Models
 {
     public class Demande
     {
+        public string LibelleAide { get; set; }
         public string description { get; set; } 
         public int noteVolontaire { get; set; }
         public DateTime dateDepotDemande { get; set; }
@@ -102,5 +103,7 @@ namespace Projet2.Models
 
             cnx.Close();
         }
+
+         
     }
 }

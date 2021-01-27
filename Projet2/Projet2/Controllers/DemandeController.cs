@@ -46,8 +46,10 @@ namespace Projet2.Controllers
         {
             return View();
         }
-        public ActionResult rechercherDemande()
+        public ActionResult RechercheDemandeAide()
         {
+            DemandeDAO dao = new DemandeDAO();
+            ViewBag.listeDemandes = dao.GetAll();
             return View();
         }
         public ActionResult voirDemande()
