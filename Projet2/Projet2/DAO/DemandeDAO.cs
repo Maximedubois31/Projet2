@@ -42,7 +42,7 @@ namespace Projet2.DAO
 
 
 
-
+             
             // ouvrir connection
             cnx.Open();
 
