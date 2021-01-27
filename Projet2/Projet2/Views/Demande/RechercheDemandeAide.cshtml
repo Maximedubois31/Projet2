@@ -1,9 +1,4 @@
-﻿<!-- Model : appel à la BDD Demande
-    Controleur : créer l'objet Demande
-    Vues : faire un foreach sur chaque caractéristiques de chaque demande
-
-    Pour la recherche filtrée il faudra faire la même chose mais dans le Model Utilisateur
--->
+﻿
 @using Projet2.DAO;
 @using Projet2.Models
 @model Projet2.DAO.DemandeDAO
@@ -27,25 +22,27 @@
                 <h3>Heure</h3>
             </td>
             <td>
-                <h3>Nom bénéficiaire</h3>
-            </td>
-            <td>
-                <h3>Prénom</h3>
+                <h3>Description</h3>
             </td>
             <td>
                 <h3>Afficher la demande</h3>
+            </td>
+            <td>
+                <h3>Se proposer</h3>
             </td>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (Demande d in @Model.listeDemande)
+        @foreach (Demande d in ViewBag.listeDemandes)
         {
         <tr>
             <td>@d.LibelleAide</td>
             <td>@d.dateTraitement</td>
             <td>@d.heureTraitement</td>
+            <td>@d.description</td>
             <td> <input type="button" value="Voir" /> </td>
+            <td> <input type="button" value="Choisir" /> </td>
         </tr>
         }
     </tbody>

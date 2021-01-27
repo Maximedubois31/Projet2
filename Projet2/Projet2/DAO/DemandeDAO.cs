@@ -9,8 +9,7 @@ namespace Projet2.DAO
 {
     public class DemandeDAO
     {
-        public List<Demande> listeDemande { get; set; }
-
+        
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
         public void Inserer(Demande d)
         {
@@ -46,18 +45,19 @@ namespace Projet2.DAO
             cnx.Close();
         }
 
-        public DemandeDAO()
+        public List<Demande> GetAll()
         {
-           
+
+            List<Demande> resultat = new List<Demande>();
+
             SqlConnection cnx = new SqlConnection();
             cnx.ConnectionString = CNX_STR;
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cnx;
-            cmd.CommandText = "SELECT T.LibelleAide, D.DateTraitement, D.HeureTraitement, U.Nom, U.Prenom" +
-                "              FROM TypeAide T, Demande D, Utilisateur U" +
-                "              WHERE T.IdTypeAide = D.IdTypeAide" +
-                "              AND D.NumCompte = U.NumCompte";
+            cmd.CommandText = "SELECT T.LibelleAide, D.DateTraitement, D.HeureTraitement, D.Description" +
+                "              FROM TypeAide T, DemandeAide D" +
+                "              WHERE T.IdTypeAide = D.IdTypeAide";
 
             cnx.Open();
 
@@ -69,10 +69,13 @@ namespace Projet2.DAO
                 d.dateTraitement = dr.GetDateTime(dr.GetOrdinal("DateTraitement"));
                 d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
                 d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+                d.description = dr.GetString(dr.GetOrdinal("Description"));
 
 
-                listeDemande.Add(d);
+                resultat.Add(d);
             }
+
+            return resultat;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Projet2.Controllers
         public ActionResult RechercheDemandeAide()
         {
             DemandeDAO dao = new DemandeDAO();
-            dao.
+            ViewBag.listeDemandes = dao.GetAll();
             return View();
         }
         public ActionResult voirDemande()
