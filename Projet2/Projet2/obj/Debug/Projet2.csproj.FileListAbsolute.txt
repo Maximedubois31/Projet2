@@ -84,3 +84,12 @@ C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\obj\Debug\Projet2.csproj.Cor
 C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\obj\Debug\Projet2.csproj.CopyComplete
 C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\obj\Debug\Projet2.dll
 C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\obj\Debug\Projet2.pdb
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\bin\EntityFramework.dll
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\bin\EntityFramework.SqlServer.dll
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\bin\EntityFramework.xml
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\bin\EntityFramework.SqlServer.xml
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\bin\fr\EntityFramework.resources.dll
+C:\Users\formation\Desktop\Projet2\Projet2\Projet2\obj\Debug\Projet2.csprojAssemblyReference.cache
+C:\Users\formation\Desktop\Projet2\Projet2\Projet2\obj\Debug\Projet2.csproj.CoreCompileInputs.cache
+C:\Users\formation\Desktop\Projet2\Projet2\Projet2\obj\Debug\Projet2.dll
+C:\Users\formation\Desktop\Projet2\Projet2\Projet2\obj\Debug\Projet2.pdb

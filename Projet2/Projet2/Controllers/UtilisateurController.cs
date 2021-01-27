@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projet2.Models;
+using Projet2.Dao;
 
 namespace Projet2.Controllers
 {
@@ -13,7 +15,24 @@ namespace Projet2.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Inscription(string txtNom, string txtPrenom, string dateNaissance, string txtEmail, string tel, string portable, string txtLogin, string password)
+        {
+            User u = new User();
+            u.Nom = txtNom;
+            u.Prenom = txtPrenom;
+            u.DateNaissance = dateNaissance;
+            u.Email = txtEmail;
+            u.Tel = tel;
+            u.Portable = portable;
+            u.Login = txtLogin;
+            u.Password = password;
 
+            UserDAO userDao = new UserDAO();
+            userDao.Inserer(u);
+
+            return RedirectToAction("Acceuil", "Home");
+        }
         public ActionResult validerInscription()
         {
             return View();

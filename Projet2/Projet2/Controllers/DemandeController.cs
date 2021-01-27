@@ -1,9 +1,12 @@
 ﻿
+using Projet2.DAO;
+using Projet2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace Projet2.Controllers
 {
@@ -12,10 +15,22 @@ namespace Projet2.Controllers
         // GET: Demande
         public ActionResult FaireUneDemande()
         {
-            return View();
+            // faire les requetes sql
+            Demande d = new Demande();
+            return View(d);
         }
 
-        public ActionResult validerNouvelleDemande()
+        [HttpPost]
+        public ActionResult FaireUneDemande(Demande d)
+        {          
+            
+            DemandeDAO demandeDao = new DemandeDAO();
+            demandeDao.Inserer(d);
+
+            return RedirectToAction("Acceuil", "Home");
+        }
+
+            public ActionResult validerNouvelleDemande()
         {
             return View();
         }
