@@ -209,6 +209,7 @@
     <Content Include="Views\Authentification\Deinscription.cshtml" />
     <Content Include="Views\Demande\RechercheDemandeAide.cshtml" />
     <Content Include="Views\Demande\DetailsDemande.cshtml" />
+    <Content Include="Views\Demande\PropositionDemande.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

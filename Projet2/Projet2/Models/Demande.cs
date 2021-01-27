@@ -19,6 +19,7 @@ namespace Projet2.Models
         public List<TypeHelp> ListTypeHelp { get; set; } //classe catégorie
         //propriété catégorie
         public int IdTypeAide { get; set; }
+        public string LibelleAide { get; set; }
 
         public void creationUneDemandeATraiter()
         {
@@ -77,7 +78,7 @@ namespace Projet2.Models
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
         public Demande()
         {
-            ListTypeHelp = new List<TypeHelp>(); //créer une methode pour recup en base les infos 
+            
             // creer connection
             SqlConnection cnx = new SqlConnection();
             cnx.ConnectionString = CNX_STR;
