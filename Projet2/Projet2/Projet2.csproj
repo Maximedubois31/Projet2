@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Models\Demande.cs" />
     <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\TypeHelp.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,7 +192,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Association\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Acceuil.cshtml" />

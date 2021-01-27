@@ -15,20 +15,15 @@ namespace Projet2.Controllers
         // GET: Demande
         public ActionResult FaireUneDemande()
         {
-            return View();
+            // faire les requetes sql
+            Demande d = new Demande();
+            return View(d);
         }
 
-        public ActionResult Demande(string Description, string dateDepotDemande, int noteBeneficiaire, int noteVolontaire, string dateAnnulationDemande, string dateTraitement)
-        {
-            Demande d = new Demande();
-            d.Description = Description;
-            d.dateDepotDemande = dateDepotDemande;
-            d.noteBeneficiaire = noteBeneficiaire;
-            d.noteVolontaire = noteVolontaire;
-            d.dateAnnulationDemande = dateAnnulationDemande;
-            d.dateTraitement = dateTraitement;
+        [HttpPost]
+        public ActionResult FaireUneDemande(Demande d)
+        {          
             
-
             DemandeDAO demandeDao = new DemandeDAO();
             demandeDao.Inserer(d);
 
@@ -51,8 +46,10 @@ namespace Projet2.Controllers
         {
             return View();
         }
-        public ActionResult rechercherDemande()
+        public ActionResult RechercheDemandeAide()
         {
+            DemandeDAO dao = new DemandeDAO();
+            ViewBag.listeDemandes = dao.GetAll();
             return View();
         }
         public ActionResult voirDemande()

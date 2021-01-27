@@ -1,4 +1,5 @@
-﻿
+﻿@using Projet2.Models;
+@model Projet2.Models.Demande
 @{
     ViewBag.Title = "FaireUneDemande";
 }
@@ -43,65 +44,55 @@
 <body>
     <form method="post">
         <div class="choixaide">
-            <select name="typeaide" required>
+            <select name="IdTypeAide" required>
                 <option selected>Choissiez un type d'aide</option>
-                <optgroup label="Services à domicile">
-                    <option value="travaux">Travaux</option>
-                    <option value="gardeenfant">Garde d'enfant</option>
-                    <option value="gardeanimaux">Garde d'animaux</option>
-                    <option value="accompagnementscolaire">Accompagnement scolaire</option>
-                    <option value="aideadministrative">Aide administrative</option>
-                </optgroup>
-                <optgroup label="Services extérieurs">
-                    <option value="coursealimentaire">Course alimentaire</option>
-                    <option value="courserapide">Course rapide</option>
-                    <option value="promenadeanimaux">Promenade d'animaux</option>
-                </optgroup>
+                @foreach (TypeHelp item in @Model.ListTypeHelp)
+                {
+                    <option value="@item.Id" selected="@item.selected">@item.Label</option>
+                }
             </select>
         </div>
-        <div class="jourTraitement" required>
+        <div class="dateTraitement" required>
             <label for="start">Jour de traitement souhaité : </label>
-            <input type="date"
-                   value="date"
-                   min="date">
+            <input type="date" value="@Model.dateTraitement" name="dateTraitement">
         </div>
         <div class="heureTraitement" required>
             <label for="appt">Heure de traitement souhaitée : </label>
             <input type="time">
         </div>
         <p>Choissiez les jours de répétition s'il y a, ainsi que l'heure de correpondante au jour coché :</p>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="scales">Lundi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="jour">Mardi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="jour">Mercredi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="jour">Jeudi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="jour">Vendredi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="samedi">Samedi</label>
             <input type="time">
         </div>
-        <div class="jourCheckbox">
-            <input type="checkbox">
+        <div class="jourRadio">
+            <input type="radio">
             <label for="dimanche">Dimanche</label>
             <input type="time">
         </div>
@@ -135,8 +126,7 @@
         <div class="description">
             <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
         </div>
-    
-            <input type="submit" value="Valider" />
+           <input type="submit" value="Valider" />
     
     </form>
 </body>
