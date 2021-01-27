@@ -20,28 +20,19 @@ namespace Projet2.DAO
             // creer commande
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cnx;
-            cmd.CommandText = "INSERT INTO Utilisateur (Description, dateDepotDemande, noteBeneficiaire, noteVolontaire, dateAnnulationDemande, dateTraitement, numCompte, idTypeAide, DateDepotDemande) VALUES (@Description, @dateDepotDemande, @noteBeneficiaire, @noteVolontaire, @dateAnnulationDemande, @dateTraitement, @numCompte, @idTypeAide, @dateDepotDemande)";
+            cmd.CommandText = "INSERT INTO DemandeAide (Description, noteBeneficiaire, noteVolontaire, dateTraitement, idTypeAide, DateDepotDemande) VALUES (@Description, @noteBeneficiaire, @noteVolontaire, @dateTraitement, @idTypeAide, @dateDepotDemande)";
 
-            // INJECTION SQL :
-            // ---------------
-            //    '','');DELETE FROM personne; --
-            // INSERT INTO personne (nom, prenom) VALUES ('','');DELETE FROM personne; --, qsjhfgsj)
-            var numeroCompte = select NumCompte from Utilisateur;
-                
+            //var numeroCompte = "SELECT NumCompte FROM Utilisateur";
 
             // ajouter params commande
-            cmd.Parameters.Add(new SqlParameter("Description", d.Description));
-            cmd.Parameters.Add(new SqlParameter("dateDepotDemande", d.dateDepotDemande));
+            cmd.Parameters.Add(new SqlParameter("Description", d.description));
             cmd.Parameters.Add(new SqlParameter("noteBeneficiaire", d.noteBeneficiaire));
             cmd.Parameters.Add(new SqlParameter("noteVolontaire", d.noteVolontaire));
-            cmd.Parameters.Add(new SqlParameter("dateAnnulationDemande", d.dateAnnulationDemande));
+            //cmd.Parameters.Add(new SqlParameter("dateAnnulationDemande", d.dateAnnulationDemande));
             cmd.Parameters.Add(new SqlParameter("dateTraitement", d.dateTraitement));
-            cmd.Parameters.Add(new SqlParameter("numCompte", d.numCompte));
-            cmd.Parameters.Add(new SqlParameter("idTypeAide", d.idTypeAide));
-            cmd.Parameters.Add(new SqlParameter("dateDepotDemande", DateTime.Now.ToString()));
-
-
-
+            //cmd.Parameters.Add(new SqlParameter("numCompte", numeroCompte));
+            cmd.Parameters.Add(new SqlParameter("IdTypeAide", d.IdTypeAide));
+            cmd.Parameters.Add(new SqlParameter("dateDepotDemande", DateTime.Now));
 
             // ouvrir connection
             cnx.Open();
@@ -52,7 +43,5 @@ namespace Projet2.DAO
             // fermer connection
             cnx.Close();
         }
-    }
-}
     }
 }
