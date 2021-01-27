@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projet2.Models;
 
 namespace Projet2.Controllers
 {
@@ -13,9 +14,24 @@ namespace Projet2.Controllers
         {
             return View();
         }
-        public ActionResult validerConnexion()
-        {
+        public ActionResult Connexion()
+        {  
             return View();
+        }
+        [HttpPost]
+        public ActionResult Connexion(string txtUserName, string txtUserPass)
+        {
+            Authentification authen = new Authentification();
+            authen.ValidateUser(txtUserName, txtUserPass);
+            if (authen.valide == true)
+            {
+                return RedirectToAction("Acceuil", "Home");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
     }
 }

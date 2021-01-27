@@ -2,6 +2,30 @@
 @{
     ViewBag.Title = "Connexion";
 }
-
-<h2>PageConnexion</h2>
-
+<h3>
+    <font face="Verdana">Logon Page</font>
+</h3>
+<authentication mode="Forms">
+    <table>
+        <tr>
+            <td>Login:</td>
+            <td><input id="txtUserName" type="text" runat="server"></td>
+            <td>
+                <ASP:RequiredFieldValidator ControlToValidate="txtUserName"
+                                            Display="Static" ErrorMessage="*" runat="server"
+                                            ID="vUserName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input id="txtUserPass" type="password" runat="server"></td>
+            <td>
+                <ASP:RequiredFieldValidator ControlToValidate="txtUserPass"
+                                            Display="Static" ErrorMessage="*" runat="server"
+                                            ID="vUserPass" />
+            </td>
+        </tr>
+    </table>
+    <input type="submit" Value="Login" runat="server" ID="cmdLogin"><p></p>
+    <asp:Label id="lblMsg" ForeColor="red" Font-Name="Verdana" Font-Size="10" runat="server" />
+</authentication>
