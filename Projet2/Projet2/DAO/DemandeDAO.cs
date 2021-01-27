@@ -9,6 +9,8 @@ namespace Projet2.DAO
 {
     public class DemandeDAO
     {
+        public List<Demande> listeDemande { get; set; }
+
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
         public void Inserer(Demande d)
         {
@@ -42,6 +44,35 @@ namespace Projet2.DAO
 
             // fermer connection
             cnx.Close();
+        }
+
+        public DemandeDAO()
+        {
+           
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT T.LibelleAide, D.DateTraitement, D.HeureTraitement, U.Nom, U.Prenom" +
+                "              FROM TypeAide T, Demande D, Utilisateur U" +
+                "              WHERE T.IdTypeAide = D.IdTypeAide" +
+                "              AND D.NumCompte = U.NumCompte";
+
+            cnx.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Demande d = new Demande();
+                d.dateTraitement = dr.GetDateTime(dr.GetOrdinal("DateTraitement"));
+                d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
+                d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+
+
+                listeDemande.Add(d);
+            }
         }
     }
 }

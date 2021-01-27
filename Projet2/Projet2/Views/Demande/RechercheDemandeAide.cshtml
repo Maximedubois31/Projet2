@@ -4,7 +4,9 @@
 
     Pour la recherche filtrée il faudra faire la même chose mais dans le Model Utilisateur
 -->
-
+@using Projet2.DAO;
+@using Projet2.Models
+@model Projet2.DAO.DemandeDAO
 
 @{
     ViewBag.Title = "RechercheDemandeAide";
@@ -37,16 +39,14 @@
     </thead>
 
     <tbody>
-        @foreach (Demande d in ViewBag.Demandes)
+        @foreach (Demande d in @Model.listeDemande)
         {
         <tr>
-            <td>@th.LibelleAide</td>
-            <td>@u.Nom</td>
-            <td>@u.Prenom</td>
-            <td>@d.DateTraitement</td>
-            <td>@d.HeureTraitement</td>
+            <td>@d.LibelleAide</td>
+            <td>@d.dateTraitement</td>
+            <td>@d.heureTraitement</td>
             <td> <input type="button" value="Voir" /> </td>
         </tr>
         }
-        </tbody>
+    </tbody>
 </table>
