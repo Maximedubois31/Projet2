@@ -133,6 +133,7 @@
     <Compile Include="Controllers\DemandeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UtilisateurController.cs" />
+    <Compile Include="DAO\ReponseDAO.cs" />
     <Compile Include="DAO\DemandeDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDD.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reponse.cs" />
     <Compile Include="Models\Demande.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\TypeHelp.cs" />
