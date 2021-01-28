@@ -49,10 +49,10 @@ namespace Projet2.Dao
             cnx.Close();
         }
 
-        public List<Utilisateur> GetAll()
+        public List<User> GetAll()
         {
 
-            List<Utilisateur> resultat = new List<Utilisateur>();
+            List<User> resultat = new List<User>();
 
             SqlConnection cnx = new SqlConnection();
             cnx.ConnectionString = CNX_STR;
@@ -68,7 +68,7 @@ namespace Projet2.Dao
 
             while (dr.Read())
             {
-                Utilisateur u = new Utilisateur();
+                User u = new User();
                 u.Nom = dr.GetString(dr.GetOrdinal("Nom"));
                 u.Prenom = dr.GetString(dr.GetOrdinal("Prenom"));
                 u.NumCompte = dr.GetInt32(dr.GetOrdinal("NumCompte"));
