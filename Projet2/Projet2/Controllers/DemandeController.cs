@@ -60,8 +60,8 @@ namespace Projet2.Controllers
         [HttpPost]
         public ActionResult RechercheDemandeAide(string NumDemandeAide, string NumCompte)
         {
-            RepondreDao repdao = new RepondreDao();
-            repdao.repondre();
+            ReponseDAO repdao = new ReponseDAO();
+            repdao.Choisir(NumDemandeAide, NumCompte);
             return RedirectToAction("Acceuil", "Home");
         }
         public ActionResult voirDemande()

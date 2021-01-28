@@ -45,14 +45,14 @@
 
                 <td>
                     <input type="hidden" value="@d.NumDemandeAide" name="NumDemandeAide" />
-                    <input type="button" value="Choisir" />
+                    <input type="submit" value="Choisir" />
                 </td>
                 <td>
-                    <select name="Nom" required>
+                    <select name="NumCompte" required>
                         <option selected>Choissiez un utilisateur</option>
                         @foreach (User u in ViewBag.listeUsers)
                         {
-                            <option value="@u.NumCompte" selected="@u.selected" name="NumCompte"> @u.Nom </option>                           
+                            <option value="@u.NumCompte" selected="@u.selected" > @u.Nom </option>                           
                         }
                     </select>
                 </td>
