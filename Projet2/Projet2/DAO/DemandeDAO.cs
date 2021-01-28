@@ -55,7 +55,7 @@ namespace Projet2.DAO
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cnx;
-            cmd.CommandText = "SELECT T.LibelleAide, D.DateTraitement, D.HeureTraitement, D.Description" +
+            cmd.CommandText = "SELECT D.NumDemandeAide, T.LibelleAide, D.DateTraitement, D.HeureTraitement, D.Description" +
                 "              FROM TypeAide T, DemandeAide D" +
                 "              WHERE T.IdTypeAide = D.IdTypeAide";
 
@@ -70,7 +70,7 @@ namespace Projet2.DAO
                 d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
                 d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
                 d.description = dr.GetString(dr.GetOrdinal("Description"));
-
+                d.NumDemandeAide = dr.GetInt32(dr.GetOrdinal("NumDemandeAide"));
 
                 resultat.Add(d);
             }

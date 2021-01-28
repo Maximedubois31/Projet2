@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projet2.Dao;
 
 
 namespace Projet2.Controllers
@@ -17,6 +18,8 @@ namespace Projet2.Controllers
         {
             // faire les requetes sql
             Demande d = new Demande();
+            UserDAO user = new UserDAO();
+            ViewBag.listeUsers = user.GetAll();
             return View(d);
         }
 
@@ -50,7 +53,16 @@ namespace Projet2.Controllers
         {
             DemandeDAO dao = new DemandeDAO();
             ViewBag.listeDemandes = dao.GetAll();
+            UserDAO user = new UserDAO();
+            ViewBag.listeUsers = user.GetAll();
             return View();
+        }
+        [HttpPost]
+        public ActionResult RechercheDemandeAide(string NumDemandeAide, string NumCompte)
+        {
+            RepondreDao repdao = new RepondreDao();
+            repdao.repondre();
+            return RedirectToAction("Acceuil", "Home");
         }
         public ActionResult voirDemande()
         {

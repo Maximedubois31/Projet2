@@ -1,4 +1,5 @@
 ﻿@using Projet2.Models;
+@using Projet2.DAO;
 @model Projet2.Models.Demande
 @{
     ViewBag.Title = "FaireUneDemande";
@@ -59,72 +60,18 @@
         <div class="heureTraitement" required>
             <label for="appt">Heure de traitement souhaitée : </label>
             <input type="time">
-        </div>
-        <p>Choissiez les jours de répétition s'il y a, ainsi que l'heure de correpondante au jour coché :</p>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="scales">Lundi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="jour">Mardi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="jour">Mercredi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="jour">Jeudi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="jour">Vendredi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="samedi">Samedi</label>
-            <input type="time">
-        </div>
-        <div class="jourRadio">
-            <input type="radio">
-            <label for="dimanche">Dimanche</label>
-            <input type="time">
-        </div>
-        <div class="semaineRep">
-            <select name="nbrepsem" id="nbrepsem-select">
-                <option value="default">Choissiez un nombre de semaine de répétition</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-        <div class="materiel">
-            <select name="materiel" id="materiel-select">
-                <option value="default">Matériel nécessaire</option>
-                <option value="1">Véhicule 5 places</option>
-                <option value="2">Fourgonnette</option>
-                <option value="3">Poussette</option>
-                <option value="4">Visseuse</option>
-                <option value="4">Tronçonneuse</option>
-                <option value="4">Bétonnière</option>
-            </select>
-            <select name="quantite" id="quantite-select">
-                <option value="default">Quantité nécessaire</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
+        </div>       
         <div class="description">
             <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
+        </div>
+        <div>
+            <select name="Nom" required>
+                <option selected>Choissiez un utilisateur</option>
+                @foreach (User u in ViewBag.listeUsers)
+                {
+                    <option> @u.Nom </option>
+                }
+            </select>
         </div>
            <input type="submit" value="Valider" />
     

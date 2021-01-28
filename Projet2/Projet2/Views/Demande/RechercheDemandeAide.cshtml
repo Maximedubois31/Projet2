@@ -25,10 +25,10 @@
                 <h3>Description</h3>
             </td>
             <td>
-                <h3>Afficher la demande</h3>
+                <h3>Se proposer</h3>
             </td>
             <td>
-                <h3>Se proposer</h3>
+                <h3>Choisir un utilisateur</h3>
             </td>
         </tr>
     </thead>
@@ -36,14 +36,29 @@
     <tbody>
         @foreach (Demande d in ViewBag.listeDemandes)
         {
-        <tr>
-            <td>@d.LibelleAide</td>
-            <td>@d.dateTraitement</td>
-            <td>@d.heureTraitement</td>
-            <td>@d.description</td>
-            <td> <input type="button" value="Voir" /> </td>
-            <td> <input type="button" value="Choisir" /> </td>
-        </tr>
+        <form method="post">
+            <tr>
+                <td>@d.LibelleAide</td>
+                <td>@d.dateTraitement</td>
+                <td>@d.heureTraitement</td>
+                <td>@d.description</td>
+
+                <td>
+                    <input type="hidden" value="@d.NumDemandeAide" name="NumDemandeAide" />
+                    <input type="button" value="Choisir" />
+                </td>
+                <td>
+                    <select name="Nom" required>
+                        <option selected>Choissiez un utilisateur</option>
+                        @foreach (User u in ViewBag.listeUsers)
+                        {
+                            <option value="@u.NumCompte" selected="@u.selected" name="NumCompte"> @u.Nom </option>                           
+                        }
+                    </select>
+                </td>
+            </tr>
+        </form>
         }
+
     </tbody>
 </table>

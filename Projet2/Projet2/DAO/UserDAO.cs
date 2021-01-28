@@ -48,5 +48,34 @@ namespace Projet2.Dao
             // fermer connection
             cnx.Close();
         }
+
+        public List<Utilisateur> GetAll()
+        {
+
+            List<Utilisateur> resultat = new List<Utilisateur>();
+
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT *" +
+                              "FROM Utilisateur";
+
+            cnx.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Utilisateur u = new Utilisateur();
+                u.Nom = dr.GetString(dr.GetOrdinal("Nom"));
+                u.Prenom = dr.GetString(dr.GetOrdinal("Prenom"));
+                u.NumCompte = dr.GetInt32(dr.GetOrdinal("NumCompte"));
+                resultat.Add(u);
+            }
+
+            return resultat;
+        }
     }
 }

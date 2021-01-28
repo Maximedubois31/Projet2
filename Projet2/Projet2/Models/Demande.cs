@@ -20,7 +20,8 @@ namespace Projet2.Models
         public List<TypeHelp> ListTypeHelp { get; set; } //classe catégorie
         //propriété catégorie
         public int IdTypeAide { get; set; }
-        public string LibelleAide { get; set; }
+        public int NumDemandeAide { get; set; }
+
 
         public void creationUneDemandeATraiter()
         {
@@ -83,6 +84,7 @@ namespace Projet2.Models
             // creer connection
             SqlConnection cnx = new SqlConnection();
             cnx.ConnectionString = CNX_STR;
+            ListTypeHelp = new List<TypeHelp>();
 
             // creer commande
             SqlCommand cmd = new SqlCommand();
@@ -103,7 +105,6 @@ namespace Projet2.Models
 
             cnx.Close();
         }
-
          
     }
 }

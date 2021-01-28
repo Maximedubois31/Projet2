@@ -16,7 +16,8 @@ namespace Projet2.Models
         public string Portable { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-
+        public bool selected;
+        
         public void sinscrire()
         {
 
