@@ -56,7 +56,7 @@ namespace Projet2.Controllers
         {
             return View();
         }
-        public ActionResult validerPropositionDemande()
+        public ActionResult validerPropositionDemande(DateTime DateReponse)
         {
             return View();
         }
