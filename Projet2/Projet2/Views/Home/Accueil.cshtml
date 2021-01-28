@@ -1,0 +1,113 @@
+﻿
+@using Projet2.DAO;
+@using Projet2.Models
+@model Projet2.DAO.DemandeDAO
+@{
+    ViewBag.Title = "Accueil";
+}
+
+
+<h2>Accueil</h2>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            min-height: 25vh;
+            min-width: 50vh;
+        }
+
+        select {
+            min-height: 3vh;
+            min-width: 3vh;
+        }
+
+        div.choixaide, div.description, div.jourTraitement, div.heureTraitement, div.materiel, div.semaineRep {
+            position: center;
+            padding: 10px;
+        }
+
+        div.jourCheckbox {
+            position: center;
+            padding: 5px;
+        }
+
+        div.semaineRep {
+            min-width: 20vw;
+        }
+    </style>
+    }
+</head>
+
+
+<input type="submit" value="Faire une demande d'aide" />
+<input type="submit" value="Rechercher" />
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+
+      Index
+
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Index</h2>
+
+    <table>
+
+        <tr>
+
+            <th></th>
+
+            <th>
+
+                Demande en cours
+
+            </th>
+
+            <th>
+
+                Type d'aide
+
+            </th>
+
+            <th>
+
+              Date
+
+            </th>
+        </tr>
+
+        @foreach (Demande d in ViewBag.listeDemandes)
+        {
+            <tr>
+                <td>@d.LibelleAide</td>
+                <td>@d.IdTypeAide</td>
+                <td>@d.dateTraitement</td>
+
+                <td> <input type="button" value="Voir" /> </td>
+                <td> <input type="button" value="Choisir" /> </td>
+            </tr>
+        }
+
+    </table>
+
+    <p>
+
+        <%= Html.ActionLink("Create New", "Create") %>
+
+    </p>
+
+</asp:Content>
+
+
