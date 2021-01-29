@@ -11,7 +11,7 @@ namespace Projet2.DAO
     {
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
 
-        public void Choisir(string NumDemandeAide, string NumCompte)
+        public void Choisir(string NumDemandeAide, int NumCompte)
         {
             // creer connection
             SqlConnection cnx = new SqlConnection();
@@ -20,7 +20,9 @@ namespace Projet2.DAO
             // creer commande
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cnx;
-            cmd.CommandText = "INSERT INTO Repondre (DateReponse, NumDemandeAide, NumCompte) VALUES (@DateReponse, @NumDemandeAide, @NumCompte)";
+            cmd.CommandText = "UPDATE Repondre " +
+                "              SET DateReponse = @DateReponse, NumCompte = @NumCompte" +
+                "              WHERE NumDemandeAide = @NumDemandeAide";
 
             // ajouter params commande
             cmd.Parameters.Add(new SqlParameter("@DateReponse", DateTime.Now));

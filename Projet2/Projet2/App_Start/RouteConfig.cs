@@ -16,7 +16,7 @@ namespace Projet2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Accueil", id = UrlParameter.Optional }
+                defaults: new { controller = "Authentification", action = "Connexion", id = UrlParameter.Optional }
             );
         }
     }

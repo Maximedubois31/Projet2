@@ -31,7 +31,7 @@ namespace Projet2.Controllers
             UserDAO userDao = new UserDAO();
             userDao.Inserer(u);
 
-            return RedirectToAction("Acceuil", "Home");
+            return RedirectToAction("Accueil", "Home");
         }
         public ActionResult validerInscription()
         {
@@ -45,6 +45,10 @@ namespace Projet2.Controllers
 
         public ActionResult monCompte()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
             return View();
         }
 
