@@ -45,23 +45,18 @@
             min-width: 20vw;
         }
     </style>
-    }
+    
 </head>
 
+<form method="get" action="/Demande/FaireUneDemande">
+    <input type="submit" value="Faire une demande d'aide" />
+</form>
 
-<input type="submit" value="Faire une demande d'aide" />
-<input type="submit" value="Rechercher" />
-
-
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-
-      Index
-
-</asp:Content>
+<form method="get" action="/Demande/RechercheDemandeAide">
+    <input type="submit" value="Rechercher" />
+</form>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2>Index</h2>
 
     <table>
 
@@ -83,7 +78,7 @@
 
             <th>
 
-              Date
+                Date
 
             </th>
         </tr>
@@ -94,7 +89,6 @@
                 <td>@d.LibelleAide</td>
                 <td>@d.IdTypeAide</td>
                 <td>@d.dateTraitement</td>
-                <td>@d.heureTraitement</td>
 
                 <td> <input type="button" value="Choisir" /> </td>
             </tr>
@@ -102,12 +96,38 @@
 
     </table>
 
-    <p>
-
-        <%= Html.ActionLink("Create New", "Create") %>
-
-    </p>
-
 </asp:Content>
 
 
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <table>
+
+        <tr>
+            <th>
+                Proposition en cours
+            </th>
+
+            <th>
+                Type d'aide
+            </th>
+
+            <th>
+                Date
+            </th>
+        </tr>
+
+        @foreach (Demande d in ViewBag.listeDemandes)
+        {
+            <tr>
+                <td>@d.LibelleAide</td>
+                <td>@d.IdTypeAide</td>
+                <td>@d.dateTraitement</td>
+
+                <td> <input type="button" value="Choisir" /> </td>
+            </tr>
+        }
+
+    </table>
+
+</asp:Content>
