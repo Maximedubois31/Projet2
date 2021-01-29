@@ -1,13 +1,66 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="StyleSheet1.css">
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+        html {
+            height: 100%;
+        }
+
+        body { 
+            background-image: linear-gradient(to bottom, rgba(0, 50, 230,0.5), rgba(204, 215, 255,0.5)), url("https://cdn1.vectorstock.com/i/thumb-large/44/95/flat-neighbor-looking-out-windows-vector-24344495.jpg"); 
+            background-size: 20%;
+        }
+
+        table {
+            border-radius: 5px;
+            border: 1px solid white;
+            padding: 5px;
+            margin: auto;
+        }
+
+        th, thead {
+            border: 1px solid white;
+            padding: 5px;
+            margin: auto;
+            text-align: center;
+            background-color: midnightblue;
+            color: white;
+
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        }
+
+        td {
+            border: 1px solid white;
+            padding: 5px;
+            margin: auto;
+        }
+
+        tbody td:nth-child(odd) {
+            background: aliceblue;
+        }
+
+        tbody tr:hover {
+            background: white;
+        }
+
+        .button {
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+    </style>
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -33,9 +86,6 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mon application ASP.NET</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

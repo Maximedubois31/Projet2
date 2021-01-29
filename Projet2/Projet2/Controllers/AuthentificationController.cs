@@ -25,7 +25,7 @@ namespace Projet2.Controllers
             authen.ValidateUser(txtUserName, txtUserPass);
             if (authen.valide == true)
             {
-                return RedirectToAction("Acceuil", "Home");
+                return RedirectToAction("Accueil", "Home");
             }
             else
             {

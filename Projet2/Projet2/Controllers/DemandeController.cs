@@ -30,7 +30,7 @@ namespace Projet2.Controllers
             DemandeDAO demandeDao = new DemandeDAO();
             demandeDao.Inserer(d);
 
-            return RedirectToAction("Acceuil", "Home");
+            return RedirectToAction("Accueil", "Home");
         }
 
             public ActionResult validerNouvelleDemande()
@@ -62,7 +62,7 @@ namespace Projet2.Controllers
         {
             ReponseDAO repdao = new ReponseDAO();
             repdao.Choisir(NumDemandeAide, NumCompte);
-            return RedirectToAction("Acceuil", "Home");
+            return RedirectToAction("Accueil", "Home");
         }
         public ActionResult voirDemande()
         {
