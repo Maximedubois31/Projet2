@@ -11,11 +11,16 @@ using Projet2.Dao;
 
 namespace Projet2.Controllers
 {
+
     public class DemandeController : Controller
     {
         // GET: Demande
         public ActionResult FaireUneDemande()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
             // faire les requetes sql
             Demande d = new Demande();
             UserDAO user = new UserDAO();
@@ -28,9 +33,10 @@ namespace Projet2.Controllers
         {          
             
             DemandeDAO demandeDao = new DemandeDAO();
+            d.NumCompte = (int)Session["idUtilisateur"];
             demandeDao.Inserer(d);
 
-            return RedirectToAction("Acceuil", "Home");
+            return RedirectToAction("Accueil", "Home");
         }
 
             public ActionResult validerNouvelleDemande()
@@ -51,6 +57,10 @@ namespace Projet2.Controllers
         }
         public ActionResult RechercheDemandeAide()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
             DemandeDAO dao = new DemandeDAO();
             ViewBag.listeDemandes = dao.GetAll();
             UserDAO user = new UserDAO();
@@ -58,11 +68,12 @@ namespace Projet2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult RechercheDemandeAide(string NumDemandeAide, string NumCompte)
+        public ActionResult RechercheDemandeAide(string NumDemandeAide, Reponse r)
         {
             ReponseDAO repdao = new ReponseDAO();
-            repdao.Choisir(NumDemandeAide, NumCompte);
-            return RedirectToAction("Acceuil", "Home");
+            r.NumCompte = (int)Session["idUtilisateur"];
+            repdao.Choisir(NumDemandeAide, r.NumCompte);
+            return RedirectToAction("Accueil", "Home");
         }
         public ActionResult voirDemande()
         {

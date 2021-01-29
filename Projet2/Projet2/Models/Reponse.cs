@@ -10,5 +10,6 @@ namespace Projet2.Models
         public DateTime DateReponse { get; set; }
         public int NumDemandeAide { get; set; }
         public int NumCompte { get; set; }
+        
     }
 }
