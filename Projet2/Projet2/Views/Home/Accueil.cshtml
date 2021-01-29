@@ -6,128 +6,70 @@
     ViewBag.Title = "Accueil";
 }
 
-
 <h2>Accueil</h2>
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        textarea {
-            min-height: 25vh;
-            min-width: 50vh;
-        }
-
-        select {
-            min-height: 3vh;
-            min-width: 3vh;
-        }
-
-        div.choixaide, div.description, div.jourTraitement, div.heureTraitement, div.materiel, div.semaineRep {
-            position: center;
-            padding: 10px;
-        }
-
-        div.jourCheckbox {
-            position: center;
-            padding: 5px;
-        }
-
-        div.semaineRep {
-            min-width: 20vw;
-        }
-    </style>
-    
-</head>
-
-<form method="get" action="/Demande/FaireUneDemande">
-    <input type="submit" value="Faire une demande d'aide" />
-</form>
-
-<form method="get" action="/Demande/RechercheDemandeAide">
-    <input type="submit" value="Rechercher" />
-</form>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<a href="~/Demande/FaireUneDemande">Faire une demande d'aide</a>
+<a href="~/Demande/RechercherDemandeAide">Rechercher les demandes d'aides</a>
 
     <table>
-
         <tr>
-
-            <th></th>
-
-            <th>
-
-                Demande en cours
-
-            </th>
-
-            <th>
-
-                Type d'aide
-
-            </th>
-
-            <th>
-
-                Date
-
-            </th>
+            <td>
+                <h3>Demande en cours</h3>
+            </td>
+            <td>
+                <h3>Type d'aide</h3>
+            </td>
+            <td>
+                <h3>Jour de la tâche</h3>
+            </td>
+            <td>
+                <h3>Heure</h3>
+            </td>
+            <td>
+                <h3>Description</h3>
+            </td>
         </tr>
 
-        @foreach (Demande d in ViewBag.listeDemandes)
+        @foreach (Demande d in ViewBag.DemandeEnCours)
         {
             <tr>
+                <td></td>
                 <td>@d.LibelleAide</td>
-                <td>@d.IdTypeAide</td>
                 <td>@d.dateTraitement</td>
-
-                <td> <input type="button" value="Choisir" /> </td>
+                <td>@d.heureTraitement</td>
+                <td>@d.description</td>
             </tr>
         }
 
     </table>
 
-</asp:Content>
-
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     <table>
 
         <tr>
-            <th>
-                Proposition en cours
-            </th>
-
-            <th>
-                Type d'aide
-            </th>
-
-            <th>
-                Date
-            </th>
+            <td>
+                <h3>Proposition en cours</h3>
+            </td>
+            <td>
+                <h3>Jour de la tâche</h3>
+            </td>
+            <td>
+                <h3>Heure</h3>
+            </td>
+            <td>
+                <h3>Description</h3>
+            </td>
         </tr>
 
-        @foreach (Demande d in ViewBag.listeDemandes)
+        @foreach (Demande d in ViewBag.PropositionEnCours)
         {
             <tr>
+                <td></td>
                 <td>@d.LibelleAide</td>
-                <td>@d.IdTypeAide</td>
                 <td>@d.dateTraitement</td>
-
-                <td> <input type="button" value="Choisir" /> </td>
+                <td>@d.heureTraitement</td>
+                <td>@d.description</td>
             </tr>
+
         }
 
     </table>
-
-</asp:Content>

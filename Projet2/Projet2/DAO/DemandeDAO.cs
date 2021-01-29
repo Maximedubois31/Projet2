@@ -69,7 +69,7 @@ namespace Projet2.DAO
                 "              FROM TypeAide T, DemandeAide D, Repondre R" +
                 "              WHERE T.IdTypeAide = D.IdTypeAide" +
                 "              AND R.NumDemandeAide = D.NumDemandeAide" +
-                "               AND R.DateReponse is null";     
+                "              AND R.DateReponse is null";     
 
 
             cnx.Open();
@@ -90,5 +90,78 @@ namespace Projet2.DAO
             cnx.Close();
             return resultat;
         }
+
+        public List<Demande> GetAllDemandeEnCours(User u)
+        {
+            List<Demande> ListeDemandeEnCours = new List<Demande>();
+
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT D.DateTraitement, D.HeureTraitement, D.Description, D.NumDemandeAide, T.LibelleAide " +
+                "              FROM DemandeAide D, TypeAide T " +
+                "              WHERE NumCompte = @NumCompte" +
+                "              AND T.IdTypeAide = D.IdTypeAide";
+            cmd.Parameters.Add(new SqlParameter("@NumCompte", u.NumCompte));
+
+            cnx.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Demande d = new Demande();
+                d.dateTraitement = dr.GetDateTime(dr.GetOrdinal("DateTraitement"));
+                d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
+                d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+                d.description = dr.GetString(dr.GetOrdinal("Description"));
+                d.NumDemandeAide = dr.GetInt32(dr.GetOrdinal("NumDemandeAide"));
+
+                ListeDemandeEnCours.Add(d);
+            }
+            cnx.Close();
+
+            return ListeDemandeEnCours;
+        }
+
+        public List<Demande> GetAllPropositionEnCours(User u)
+        {
+            List<Demande> ListePropositionEnCours = new List<Demande>();
+
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT D.DateTraitement, D.HeureTraitement, D.Description, D.NumDemandeAide, T.LibelleAide " +
+                "              FROM DemandeAide D, TypeAide T, Repondre R " +
+                "              WHERE R.NumCompte = @NumCompte" +
+                "              AND T.IdTypeAide = D.IdTypeAide" +
+                "              AND R.NumDemandeAide = D.NumDemandeAide";
+
+            cmd.Parameters.Add(new SqlParameter("@NumCompte", u.NumCompte));
+
+            cnx.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Demande d = new Demande();
+                d.dateTraitement = dr.GetDateTime(dr.GetOrdinal("DateTraitement"));
+                d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
+                d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+                d.description = dr.GetString(dr.GetOrdinal("Description"));
+                d.NumDemandeAide = dr.GetInt32(dr.GetOrdinal("NumDemandeAide"));
+
+                ListePropositionEnCours.Add(d);
+            }
+            cnx.Close();
+
+            return ListePropositionEnCours;
+        }
+
     }
 }
