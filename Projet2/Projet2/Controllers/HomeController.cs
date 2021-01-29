@@ -12,19 +12,33 @@ namespace Projet2.Controllers
     {
         public ActionResult Home()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
             return View();
         }
 
         public ActionResult Contact()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
             return View();
         }
 
         public ActionResult Accueil()
         {
-            Demande d = new Demande();
-            DemandeDAO dao = new DemandeDAO();
-            ViewBag.listeDemandes = dao.GetAll();
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }         
+            User u = new User();
+            u.NumCompte = (int)Session["idUtilisateur"];
+            DemandeDAO ddao = new DemandeDAO();
+            ViewBag.DemandeEnCours = ddao.GetAllDemandeEnCours(u);
+            ViewBag.PropositionEnCours = ddao.GetAllPropositionEnCours(u);
             return View();
         }
     }

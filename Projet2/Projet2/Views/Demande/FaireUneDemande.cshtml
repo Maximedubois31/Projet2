@@ -4,77 +4,38 @@
 @{
     ViewBag.Title = "FaireUneDemande";
 }
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faire une demande d'aide</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        textarea {
-            min-height: 25vh;
-            min-width: 50vh;
-        }
+<form method="post">
+    <div class="choixaide">
+        <select name="IdTypeAide" required>
+            <option selected>Choissiez un type d'aide</option>
+            @foreach (TypeHelp item in @Model.ListTypeHelp)
+            {
+                <option value="@item.Id" selected="@item.selected">@item.Label</option>
+            }
+        </select>
+    </div>
+    <div class="dateTraitement" required>
+        <label for="start">Jour de traitement souhaité : </label>
+        <input type="date" value="@Model.dateTraitement" name="dateTraitement">
+    </div>
+    <div class="heureTraitement" required>
+        <label for="appt">Heure de traitement souhaitée : </label>
+        <input type="time" value="@Model.heureTraitement" name="HeureTraitement">
+    </div>
+    <div class="description" maxlength="500" required>
+        <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
+    </div>
+  <!--   <div>
+        <select name="Nom" required>
+            <option selected>Choissiez un utilisateur</option>
+            @foreach (User u in ViewBag.listeUsers)
+            {
+                <option> @u.Nom </option>
+            }
+        </select>
+    </div>
+    -->
 
-        select {
-            min-height: 3vh;
-            min-width: 3vh;
-        }
-
-        div.choixaide, div.description, div.jourTraitement, div.heureTraitement, div.materiel, div.semaineRep {
-            position: center;
-            padding: 10px;
-        }
-
-        div.jourCheckbox {
-            position: center;
-            padding: 5px;
-        }
-
-        div.semaineRep {
-            min-width 20vw;
-        }
-    </style>
-</head>
-<body>
-    <form method="post">
-        <div class="choixaide">
-            <select name="IdTypeAide" required>
-                <option selected>Choissiez un type d'aide</option>
-                @foreach (TypeHelp item in @Model.ListTypeHelp)
-                {
-                    <option value="@item.Id" selected="@item.selected">@item.Label</option>
-                }
-            </select>
-        </div>
-        <div class="dateTraitement" required>
-            <label for="start">Jour de traitement souhaité : </label>
-            <input type="date" value="@Model.dateTraitement" name="dateTraitement">
-        </div>
-        <div class="heureTraitement" required>
-            <label for="appt">Heure de traitement souhaitée : </label>
-            <input type="time">
-        </div>       
-        <div class="description">
-            <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
-        </div>
-        <div>
-            <select name="Nom" required>
-                <option selected>Choissiez un utilisateur</option>
-                @foreach (User u in ViewBag.listeUsers)
-                {
-                    <option> @u.Nom </option>
-                }
-            </select>
-        </div>
-           <input class="button" type="submit" value="Valider" />
-    
-    </form>
-</body>
-</html>
+    <input type="submit" value="Valider" />
+</form>

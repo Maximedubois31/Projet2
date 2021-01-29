@@ -10,7 +10,7 @@ namespace Projet2.Models
     public class Demande
     {
         public string LibelleAide { get; set; }
-        public string description { get; set; } 
+        public string description { get; set; }
         public int noteVolontaire { get; set; }
         public DateTime dateDepotDemande { get; set; }
         public int noteBeneficiaire { get; set; }
@@ -21,6 +21,7 @@ namespace Projet2.Models
         //propriété catégorie
         public int IdTypeAide { get; set; }
         public int NumDemandeAide { get; set; }
+        public int NumCompte { get; set; }
 
 
         public void creationUneDemandeATraiter()
@@ -80,7 +81,7 @@ namespace Projet2.Models
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
         public Demande()
         {
-            
+
             // creer connection
             SqlConnection cnx = new SqlConnection();
             cnx.ConnectionString = CNX_STR;
@@ -93,8 +94,8 @@ namespace Projet2.Models
 
             cnx.Open();
             SqlDataReader dr = cmd.ExecuteReader();
-    
-            while(dr.Read())
+
+            while (dr.Read())
             {
                 TypeHelp th = new TypeHelp();
                 th.Id = dr.GetInt32(dr.GetOrdinal("IdTypeAide"));
@@ -105,6 +106,6 @@ namespace Projet2.Models
 
             cnx.Close();
         }
-         
+
     }
 }

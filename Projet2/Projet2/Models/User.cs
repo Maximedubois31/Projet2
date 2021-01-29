@@ -10,13 +10,14 @@ namespace Projet2.Models
         public int NumCompte { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public string DateNaissance { get; set; }
+        public DateTime DateNaissance { get; set; }
         public string Email { get; set; }
-        public string Tel { get; set; }
-        public string Portable { get; set; }
+        public int Tel { get; set; }
+        public int Portable { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public bool selected;
+        public DateTime DateInscription { get; set; }
         
         public void sinscrire()
         {
