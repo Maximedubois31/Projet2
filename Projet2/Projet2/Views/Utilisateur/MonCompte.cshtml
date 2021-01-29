@@ -1,7 +1,42 @@
-﻿
+﻿@using Projet2.DAO;
+@using Projet2.Models
+
 @{
     ViewBag.Title = "MonCompte";
 }
-
 <h2>MonCompte</h2>
+<table>
+
+    <tr>
+        <td> Nom :</td>
+        <td>@ViewBag.InfoUser.Nom</td>
+    </tr>
+    <tr>
+        <td>Prenom :</td>
+        <td>@ViewBag.InfoUser.Prenom</td>
+    </tr>
+    <tr>
+        <td> Date de naissance :</td>
+        <td>@ViewBag.InfoUser.DateNaissance</td>
+    </tr>
+    <tr>
+        <td> Email :</td>
+        <td>@ViewBag.InfoUser.Email</td>
+    </tr>
+    <tr>
+        <td> Numéro de téléphone :</td>
+        <td>@ViewBag.InfoUser.Tel</td>
+    </tr>
+    <tr>
+        <td> Numéro de portable :</td>
+        <td>@ViewBag.InfoUser.Portable</td>
+    </tr>
+    <tr>
+        <td> Date d'inscription :</td>
+        <td>@ViewBag.InfoUser.DateInscription</td>
+    </tr>
+
+</table>
+            
+
 

@@ -16,7 +16,7 @@ namespace Projet2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Inscription(string txtNom, string txtPrenom, string dateNaissance, string txtEmail, string tel, string portable, string txtLogin, string password)
+        public ActionResult Inscription(string txtNom, string txtPrenom, DateTime dateNaissance, string txtEmail, int tel, int portable, string txtLogin, string password)
         {
             User u = new User();
             u.Nom = txtNom;
@@ -45,10 +45,15 @@ namespace Projet2.Controllers
 
         public ActionResult monCompte()
         {
+
             if (Session["idUtilisateur"] == null)
             {
                 return RedirectToAction("Connexion", "Authentification");
             }
+            User u = new User();
+            u.NumCompte = (int)Session["idUtilisateur"];
+            UserDAO udao = new UserDAO();           
+            ViewBag.InfoUser = udao.GetAllInfos(u);
             return View();
         }
 

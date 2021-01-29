@@ -74,8 +74,37 @@ namespace Projet2.Dao
                 u.NumCompte = dr.GetInt32(dr.GetOrdinal("NumCompte"));
                 resultat.Add(u);
             }
-
+            cnx.Close();
             return resultat;
+        }
+
+        public User GetAllInfos(User u)
+        {         
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT * FROM Utilisateur WHERE NumCompte = @NumCompte";
+            cmd.Parameters.Add(new SqlParameter("@NumCompte", u.NumCompte));
+
+            cnx.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Demande d = new Demande();
+                 u.Nom = dr.GetString(dr.GetOrdinal("Nom"));
+                 u.Prenom = dr.GetString(dr.GetOrdinal("Prenom"));
+                 u.DateNaissance = dr.GetDateTime(dr.GetOrdinal("DateDeNaissance"));
+                 u.Email = dr.GetString(dr.GetOrdinal("Email"));
+                 u.Tel = dr.GetInt32(dr.GetOrdinal("NumeroTelephone"));
+                 u.Portable = dr.GetInt32(dr.GetOrdinal("NumeroPortable"));
+                 u.DateInscription = dr.GetDateTime(dr.GetOrdinal("DateInscription"));
+            }
+            cnx.Close();
+            return u;
         }
     }
 }
