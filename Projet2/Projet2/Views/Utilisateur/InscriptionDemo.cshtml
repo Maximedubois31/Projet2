@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "InscriptionDemo";
+}
+
+<h2>InscriptionDemo</h2>
+
+<form method="post" style="text-align:center;">
+    <table>
+        <tr>
+            <th>Nom</th>
+            <td><input type="text" name="txtNom" maxlength="64" value="Demo" required /></td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td><input type="text" name="txtPrenom" maxlength="64" value="Demo" required /></td>
+        </tr>
+        <tr>
+            <th>Date de naissance</th>
+            <td><input type="date" name="dateNaissance" value="1995-02-07" required /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="txtEmail" value="demo@gmail.com" required /></td>
+        </tr>
+        <tr>
+            <th>Numéro téléphone</th>
+            <td><input type="tel" name="tel" value="0504030201" /></td>
+        </tr>
+        <tr>
+            <th>Numéro téléphone portable</th>
+            <td><input type="tel" name="portable" value="0605040302" required /></td>
+        </tr>
+        <tr>
+            <th>Login</th>
+            <td><input type="text" name="txtLogin" value="demo" required /></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" name="password" value="demo" required /></td>
+        </tr>
+    </table>
+    <br />
+    <input class="button" type="submit" value="Valider" />
+    
+</form>
+
+

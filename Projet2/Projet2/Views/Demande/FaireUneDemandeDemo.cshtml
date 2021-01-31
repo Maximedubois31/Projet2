@@ -2,10 +2,11 @@
 @using Projet2.DAO;
 @model Projet2.Models.Demande
 @{
-    ViewBag.Title = "FaireUneDemande";
+    ViewBag.Title = "FaireUneDemandeDemo";
 }
 
-<h1>Déposez votre demande</h1>
+<h2>FaireUneDemandeDemo</h2>
+
 <br />
 
 <form method="post">
@@ -21,16 +22,16 @@
     <br />
     <div class="form-text" required>
         <label class="form-label" for="start">Jour de traitement souhaité : </label>
-        <input type="date" value="@Model.dateTraitement" name="dateTraitement">
+        <input type="date" value="2021-02-02" name="dateTraitement">
     </div>
     <br />
     <div class="form-text" required>
         <label class="form-label" for="appt">Heure de traitement souhaitée : </label>
-        <input type="time" value="@Model.heureTraitement" name="HeureTraitement">
+        <input type="time" value="13:30" name="HeureTraitement">
     </div>
     <br />
     <div class="form-text" maxlength="1000" required>
-        <textarea name="description" required style="width:500px;">Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
+        <textarea name="description" required style="width:500px;">Voici la liste des courses qu'il me faudrait : tomate, salade, oignon, pates, riz, semoule, lait, oeuf</textarea>
     </div>
     <br />
     <!--   <div>
@@ -45,5 +46,4 @@
       -->
 
     <input class="button" type="submit" value="Valider" />
-    <a href="~/Demande/FaireUneDemandeDemo" class="link_button">Demo</a>
 </form>

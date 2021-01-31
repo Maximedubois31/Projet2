@@ -33,6 +33,28 @@ namespace Projet2.Controllers
 
             return RedirectToAction("Accueil", "Home");
         }
+        public ActionResult InscriptionDemo()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult InscriptionDemo(string txtNom, string txtPrenom, DateTime dateNaissance, string txtEmail, int tel, int portable, string txtLogin, string password)
+        {
+            User u = new User();
+            u.Nom = txtNom;
+            u.Prenom = txtPrenom;
+            u.DateNaissance = dateNaissance;
+            u.Email = txtEmail;
+            u.Tel = tel;
+            u.Portable = portable;
+            u.Login = txtLogin;
+            u.Password = password;
+
+            UserDAO userDao = new UserDAO();
+            userDao.Inserer(u);
+
+            return RedirectToAction("Accueil", "Home");
+        }
         public ActionResult validerInscription()
         {
             return View();

@@ -28,9 +28,6 @@
             <th>
                 <h3>Se proposer</h3>
             </th>
-            <th>
-                <h3>Choisir un utilisateur</h3>
-            </th>
         </tr>
     </thead>
 
@@ -47,16 +44,7 @@
                 <td>
                     <input type="hidden" value="@d.NumDemandeAide" name="NumDemandeAide" />
                     <input class="button" type="submit" value="Choisir" />
-                </td>
-                <td>
-                    <select name="NumCompte" required>
-                        <option selected>Choissiez un utilisateur</option>
-                        @foreach (User u in ViewBag.listeUsers)
-                        {
-                            <option value="@u.NumCompte" selected="@u.selected" > @u.Nom </option>                           
-                        }
-                    </select>
-                </td>
+                </td>                
             </tr>
         </form>
         }

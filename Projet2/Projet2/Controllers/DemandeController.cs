@@ -29,7 +29,7 @@ namespace Projet2.Controllers
         }
 
         [HttpPost]
-        public ActionResult FaireUneDemande(Demande d)
+        public ActionResult FaireUneDemandeDemo(Demande d)
         {          
             
             DemandeDAO demandeDao = new DemandeDAO();
@@ -38,8 +38,31 @@ namespace Projet2.Controllers
 
             return RedirectToAction("Accueil", "Home");
         }
+        public ActionResult FaireUneDemandeDemo()
+        {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
+            // faire les requetes sql
+            Demande d = new Demande();
+            UserDAO user = new UserDAO();
+            ViewBag.listeUsers = user.GetAll();
+            return View(d);
+        }
 
-            public ActionResult validerNouvelleDemande()
+        [HttpPost]
+        public ActionResult FaireUneDemande(Demande d)
+        {
+
+            DemandeDAO demandeDao = new DemandeDAO();
+            d.NumCompte = (int)Session["idUtilisateur"];
+            demandeDao.Inserer(d);
+
+            return RedirectToAction("Accueil", "Home");
+        }
+
+        public ActionResult validerNouvelleDemande()
         {
             return View();
         }
