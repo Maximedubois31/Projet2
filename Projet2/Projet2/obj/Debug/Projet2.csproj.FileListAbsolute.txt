@@ -270,3 +270,4 @@ C:\Users\formation\Desktop\Projet2\Projet2\Projet2\bin\fr\System.Web.WebPages.re
 C:\Users\formation\Desktop\Projet2\Projet2\Projet2\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\formation\Desktop\Projet2\Projet2\Projet2\bin\fr\System.Web.WebPages.Razor.resources.dll
 C:\Users\formation\Desktop\Projet2\Projet2\Projet2\obj\Debug\Projet2.csproj.CopyComplete
+C:\Users\formation\Desktop\Projet 2\Projet2\Projet2\obj\Debug\Projet2.csprojAssemblyReference.cache
