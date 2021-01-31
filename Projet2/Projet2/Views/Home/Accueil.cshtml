@@ -9,72 +9,79 @@
 <h1>Accueil</h1>
 <br />
 
-<a href="~/Demande/FaireUneDemande" class="link_button">Faire une demande d'aide</a>
-<a href="~/Demande/RechercheDemandeAide" class="link_button">Rechercher les demandes d'aides</a>
-</br>
-<h3 style="font-style: italic">Demande en cours</h3>
-<table>
-    <thead>
-        <tr>
-            <th>
-                <h3>Type d'aide</h3>
-            </th>
-            <th>
-                <h3>Jour de la tâche</h3>
-            </th>
-            <th>
-                <h3>Heure</h3>
-            </th>
-            <th>
-                <h3>Description</h3>
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (Demande d in ViewBag.DemandeEnCours)
-        {
+<div style="text-align:center;">
+    <a href="~/Demande/FaireUneDemande" class="link_button">Faire une demande d'aide</a>
+</div>
+<br />
+<br />
+<br />
+<div style="text-align:center;">
+    <a href="~/Demande/RechercheDemandeAide" class="link_button">Rechercher les demandes d'aides</a>
+</div>
+    <br />
+    <h3 style="font-style: italic">Demande en cours</h3>
+    <table>
+        <thead>
             <tr>
-                <td>@d.LibelleAide</td>
-                <td>@d.dateTraitement</td>
-                <td>@d.heureTraitement</td>
-                <td>@d.description</td>
+                <th>
+                    <h3>Type d'aide</h3>
+                </th>
+                <th>
+                    <h3>Jour de la tâche</h3>
+                </th>
+                <th>
+                    <h3>Heure</h3>
+                </th>
+                <th>
+                    <h3>Description</h3>
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
-</br>
+        </thead>
 
-<h3 style="font-style: italic">Proposition en cours</h3>
-<table>
-    <thead>
-        <tr>
-            <th>
-                <h3>Type d'aide</h3>
-            </th>
-            <th>
-                <h3>Jour de la tâche</h3>
-            </th>
-            <th>
-                <h3>Heure</h3>
-            </th>
-            <th>
-                <h3>Description</h3>
-            </th>
-        </tr>
-    </thead>
+        <tbody>
+            @foreach (Demande d in ViewBag.DemandeEnCours)
+            {
+                <tr>
+                    <td>@d.LibelleAide</td>
+                    <td>@d.dateTraitement</td>
+                    <td>@d.heureTraitement</td>
+                    <td>@d.description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </br>
 
-    <tbody>
-        @foreach (Demande d in ViewBag.PropositionEnCours)
-        {
+    <h3 style="font-style: italic">Proposition en cours</h3>
+    <table>
+        <thead>
             <tr>
-                <td>@d.LibelleAide</td>
-                <td>@d.dateTraitement</td>
-                <td>@d.heureTraitement</td>
-                <td>@d.description</td>
+                <th>
+                    <h3>Type d'aide</h3>
+                </th>
+                <th>
+                    <h3>Jour de la tâche</h3>
+                </th>
+                <th>
+                    <h3>Heure</h3>
+                </th>
+                <th>
+                    <h3>Description</h3>
+                </th>
             </tr>
+        </thead>
 
-        }
-    </tbody>
+        <tbody>
+            @foreach (Demande d in ViewBag.PropositionEnCours)
+            {
+                <tr>
+                    <td>@d.LibelleAide</td>
+                    <td>@d.dateTraitement</td>
+                    <td>@d.heureTraitement</td>
+                    <td>@d.description</td>
+                </tr>
 
-</table>
+            }
+        </tbody>
+
+    </table>
