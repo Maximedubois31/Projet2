@@ -4,22 +4,40 @@
 }
 <h2>Inscription</h2>
 <form method="post">
-    Nom : <input type="text" name="txtNom" maxlength="64" required/>
-    <br />
-    Prénom : <input type="text" name="txtPrenom" maxlength="64" required/>
-    <br />
-    Date de naissance : <input type="date" name="dateNaissance" required/>
-    <br />
-    Email : <input type="email" name="txtEmail" required/>
-    <br />
-    Numéro téléphone : <input type="tel" name="tel" />
-    <br />
-    Numéro téléphone portable : <input type="tel" name="portable" required/>
-    <br />
-    Login : <input type="text" name="txtLogin" required/>
-    <br />
-    Password : <input type="password" name="password" required/>
-    <br />
+    <table>
+        <tr>
+            <th>Nom</th>
+            <td><input type="text" name="txtNom" maxlength="64" required /></td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td><input type="text" name="txtPrenom" maxlength="64" required /></td>
+        </tr>
+        <tr>
+            <th>Date de naissance</th>
+            <td><input type="date" name="dateNaissance" required /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="txtEmail" required /></td>
+        </tr>
+        <tr>
+            <th>Numéro téléphone</th>
+            <td><input type="tel" name="tel" /></td>
+        </tr>
+        <tr>
+            <th>Numéro téléphone portable</th>
+            <td><input type="tel" name="portable" required /></td>
+        </tr>
+        <tr>
+            <th>Login</th>
+            <td><input type="text" name="txtLogin" required /></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" name="password" required /></td>
+        </tr>
+    </table>
     <input class="button" type="submit" value="Valider" />
 </form>
 

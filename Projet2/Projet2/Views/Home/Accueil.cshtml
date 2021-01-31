@@ -6,16 +6,15 @@
     ViewBag.Title = "Accueil";
 }
 
-<h2>Accueil</h2>
+<h1>Accueil</h1>
 
 <a href="~/Demande/FaireUneDemande">Faire une demande d'aide</a>
 <a href="~/Demande/RechercherDemandeAide">Rechercher les demandes d'aides</a>
-
-    <table>
+</br>
+<h3>Demande en cours</h3>
+<table>
+    <thead>
         <tr>
-            <td>
-                <h3>Demande en cours</h3>
-            </td>
             <td>
                 <h3>Type d'aide</h3>
             </td>
@@ -29,25 +28,28 @@
                 <h3>Description</h3>
             </td>
         </tr>
+    </thead>
 
+    <tbody>
         @foreach (Demande d in ViewBag.DemandeEnCours)
         {
             <tr>
-                <td></td>
                 <td>@d.LibelleAide</td>
                 <td>@d.dateTraitement</td>
                 <td>@d.heureTraitement</td>
                 <td>@d.description</td>
             </tr>
         }
+    </tbody>
+</table>
+</br>
 
-    </table>
-
-    <table>
-
+<h3>Proposition en cours</h3>
+<table>
+    <thead>
         <tr>
             <td>
-                <h3>Proposition en cours</h3>
+                <h3>Type d'aide</h3>
             </td>
             <td>
                 <h3>Jour de la tâche</h3>
@@ -59,11 +61,12 @@
                 <h3>Description</h3>
             </td>
         </tr>
+    </thead>
 
+    <tbody>
         @foreach (Demande d in ViewBag.PropositionEnCours)
         {
             <tr>
-                <td></td>
                 <td>@d.LibelleAide</td>
                 <td>@d.dateTraitement</td>
                 <td>@d.heureTraitement</td>
@@ -71,5 +74,6 @@
             </tr>
 
         }
+    </tbody>
 
-    </table>
+</table>
