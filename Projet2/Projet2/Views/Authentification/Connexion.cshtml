@@ -2,20 +2,24 @@
 @{
     ViewBag.Title = "Connexion";
 }
-<h3>Connexion</h3>
-<form method="post">
+<h1>Connexion</h1>
+<br />
+
+<form method="post" style="text-align:center;">
     <table>
         <tr>
-            <td>Login:</td>
+            <th>Login:</th>
             <td><input id="txtUserName" name="txtUserName" type="text"></td>
         </tr>
         <tr>
-            <td>Password:</td>
+            <th>Password:</th>
             <td><input id="txtUserPass" name="txtUserPass" type="password" runat="server"></td>
         </tr>
     </table>
+    <br />
     <input class="button" type="submit" Value="Login" ID="cmdLogin"><p></p>
 </form>
+<br />
 <a href="~/Utilisateur/Inscription" class="link_button">
    S'inscrire
 </a>

@@ -5,6 +5,9 @@
     ViewBag.Title = "FaireUneDemande";
 }
 
+<h1>Déposez votre demande</h1>
+<br />
+
 <form method="post">
     <div class="form-text">
         <select name="IdTypeAide" required>
@@ -15,17 +18,21 @@
             }
         </select>
     </div>
+    <br />
     <div class="form-text" required>
         <label class="form-label" for="start">Jour de traitement souhaité : </label>
         <input type="date" value="@Model.dateTraitement" name="dateTraitement">
     </div>
+    <br />
     <div class="form-text" required>
         <label class="form-label" for="appt">Heure de traitement souhaitée : </label>
         <input type="time" value="@Model.heureTraitement" name="HeureTraitement">
     </div>
-    <div class="form-text" maxlength="500" required>
-        <textarea name="description" maxlength="1000" required>Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
+    <br />
+    <div class="form-text" maxlength="1000" required>
+        <textarea name="description" required style="width:500px;">Veuillez renseigner les détails de votre demande (ex : liste de course, race de chien...)</textarea>
     </div>
+    <br />
   <!--   <div>
         <select name="Nom" required>
             <option selected>Choissiez un utilisateur</option>
