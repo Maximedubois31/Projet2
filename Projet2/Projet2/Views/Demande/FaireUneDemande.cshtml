@@ -21,7 +21,7 @@
     <br />
     <div class="form-text" required>
         <label class="form-label" for="start">Jour de traitement souhaité : </label>
-        <input type="date" value="@Model.dateTraitement" name="dateTraitement">
+        <input type="date" value="@Model.dateTraitement.ToShortDateString()" name="dateTraitement">
     </div>
     <br />
     <div class="form-text" required>

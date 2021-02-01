@@ -1,18 +1,17 @@
 ﻿@using Projet2.Models;
 @using Projet2.DAO;
+@using Projet2.Controllers;
 @model Projet2.Models.Demande
 @{
-    ViewBag.Title = "FaireUneDemandeDemo";
+    ViewBag.Title = "ModifierDemandeAide";
 }
 
-<h2>FaireUneDemandeDemo</h2>
-
-<br />
+<h2>ModifierDemandeAide</h2>
 
 <form method="post" style="text-align:center; margin-top: 100px;">
     <div class="form-text">
         <select name="IdTypeAide" required>
-            <option selected>Choissiez un type d'aide</option>
+            <option selected="@ViewBag.DemandeAModifier.d.LibelleAide"></option>
             @foreach (TypeHelp item in @Model.ListTypeHelp)
             {
                 <option value="@item.Id" selected="@item.selected">@item.Label</option>
@@ -22,17 +21,18 @@
     <br />
     <div class="form-text" required>
         <label class="form-label" for="start">Jour de traitement souhaité : </label>
-        <input type="date" value="2021-02-02" name="dateTraitement">
+        <input type="date" value="@ViewBag.DemandeAModifier.d.dateTraitement" name="dateTraitement">
     </div>
     <br />
     <div class="form-text" required>
         <label class="form-label" for="appt">Heure de traitement souhaitée : </label>
-        <input type="time" value="13:30" name="HeureTraitement">
+        <input type="time" value="@ViewBag.DemandeAModifier.d.heureTraitement" name="HeureTraitement">
     </div>
     <br />
-    <div class="form-text" maxlength="1000" required>
-        <textarea name="description" required style="height:250px; width:500px;">Voici la liste des courses qu'il me faudrait : tomate, salade, oignon, pates, riz, semoule, lait, oeuf</textarea>
+    <div class="form-text" required>
+        <textarea name="description" value="@ViewBag.DemandeAModifier.d.description" name="description" style="height:250px; width:500px;" required></textarea>
     </div>
     <br />
+    <input type="hidden" value="@ViewBag.DemandeAModifier.d.NumDemandeAide" name="NumDemandeAide" />
     <input class="button" type="submit" value="Valider" />
 </form>

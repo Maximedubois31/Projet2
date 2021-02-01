@@ -213,6 +213,7 @@
     <Content Include="Views\Demande\PropositionDemande.cshtml" />
     <Content Include="Views\Utilisateur\InscriptionDemo.cshtml" />
     <Content Include="Views\Demande\FaireUneDemandeDemo.cshtml" />
+    <Content Include="Views\Demande\ModifierDemandeAide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

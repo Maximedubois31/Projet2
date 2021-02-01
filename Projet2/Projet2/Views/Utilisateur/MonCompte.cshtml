@@ -19,7 +19,7 @@
     </tr>
     <tr>
         <th> Date de naissance :</th>
-        <td>@ViewBag.InfoUser.DateNaissance</td>
+        <td>@ViewBag.InfoUser.DateNaissance.ToShortDateString()</td>
     </tr>
     <tr>
         <th> Email :</th>
@@ -27,15 +27,15 @@
     </tr>
     <tr>
         <th> Numéro de téléphone :</th>
-        <td>@ViewBag.InfoUser.Tel</td>
+        <td>@String.Format("{0:0000000000}", ViewBag.InfoUser.Tel)</td>
     </tr>
     <tr>
         <th> Numéro de portable :</th>
-        <td>@ViewBag.InfoUser.Portable</td>
+        <td>@String.Format("{0:0000000000}", ViewBag.InfoUser.Portable)</td>
     </tr>
     <tr>
         <th> Date d'inscription :</th>
-        <td>@ViewBag.InfoUser.DateInscription</td>
+        <td>@ViewBag.InfoUser.DateInscription.ToShortDateString()</td>
     </tr>
 
 </table>

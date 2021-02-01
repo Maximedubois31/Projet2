@@ -35,20 +35,40 @@
                 <th>
                     <h3>Description</h3>
                 </th>
+                <th>
+                    <h3>Annuler ma demande</h3>
+                </th>
+                <!-- <th>
+        <h3>Modifier ma demande</h3>
+    </th>-->
             </tr>
         </thead>
 
-        <tbody>
+        <tbody style="text-align:center">
             @foreach (Demande d in ViewBag.DemandeEnCours)
             {
-                <tr>
-                    <td>@d.LibelleAide</td>
-                    <td>@d.dateTraitement</td>
-                    <td>@d.heureTraitement</td>
-                    <td>@d.description</td>
-                </tr>
-            }
-        </tbody>
+            
+            <tr>
+                <td><input type="hidden" value="@d.LibelleAide" name="LibelleAide" />@d.LibelleAide</td>
+                <td><input type="hidden" value="@d.dateTraitement.ToShortDateString()" name="DateTraitement" />@d.dateTraitement.ToShortDateString()</td>
+                <td><input type="hidden" value="@d.heureTraitement" name="heureTraitement" />@d.heureTraitement</td>
+                <td><input type="hidden" value="@d.description" name="description" />@d.description</td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" value="@d.NumDemandeAide" name="NumDemandeAide" />
+                        <input class="button" type="submit" value="Annuler ma demande" />
+                    </form>
+                </td>
+                <!-- <td>
+        <form method="post" action="~/Home/Accueil2">
+            <input type="hidden" value="d.NumDemandeAide" name="NumDemandeAide" />
+            <input class="button" type="submit" class="link_button" value="Modifier ma demande d'aide"/>
+        <form>
+    </td>-->
+            </tr>
+          
+             }
+            </tbody>
     </table>
     </br>
 
@@ -71,12 +91,12 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody style="text-align:center">
             @foreach (Demande d in ViewBag.PropositionEnCours)
             {
                 <tr>
                     <td>@d.LibelleAide</td>
-                    <td>@d.dateTraitement</td>
+                    <td>@d.dateTraitement.ToShortDateString()</td>
                     <td>@d.heureTraitement</td>
                     <td>@d.description</td>
                 </tr>

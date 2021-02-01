@@ -41,5 +41,29 @@ namespace Projet2.Controllers
             ViewBag.PropositionEnCours = ddao.GetAllPropositionEnCours(u);
             return View();
         }
+        [HttpPost]
+        public ActionResult Accueil(int NumDemandeAide)
+        {
+            DemandeDAO dao = new DemandeDAO();
+            int NumCompte = (int)Session["idUtilisateur"];
+            dao.Annuler(NumDemandeAide, NumCompte);
+            User u = new User();
+            u.NumCompte = (int)Session["idUtilisateur"];
+            ViewBag.DemandeEnCours = dao.GetAllDemandeEnCours(u);
+            ViewBag.PropositionEnCours = dao.GetAllPropositionEnCours(u);
+            return View();
+        }
+
+   //     [HttpPost]
+    //    public ActionResult Accueil2(int NumDemandeAide, DateTime DateTraitement, string LibelleAide, string heureTraitement, string description)
+    //    {
+    //        DemandeDAO dao = new DemandeDAO();
+     //       int NumCompte = (int)Session["idUtilisateur"];
+     //       User u = new User();
+      //      u.NumCompte = (int)Session["idUtilisateur"];
+      //      ViewBag.DemandeAModifier = dao.GetOne(NumDemandeAide, DateTraitement, LibelleAide, heureTraitement, description);
+
+      //      return RedirectToAction("ModifierDemandeAide", "Demande");
+       // }
     }
 }

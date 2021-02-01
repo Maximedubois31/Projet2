@@ -40,15 +40,18 @@ namespace Projet2.Controllers
 
             cmd.Parameters.Add(new SqlParameter("@userName", txtUserName));
             cmd.Parameters.Add(new SqlParameter("@password", txtUserPass));
-            cnx.Open();
-            int NumCompte = (int)cmd.ExecuteScalar();
-            Session["idUtilisateur"] = NumCompte;
-            int idUtilsateur = (int)Session["idUtilisateur"];
-            cnx.Close();
+            
+            
+            
             Authentification authen = new Authentification();
             authen.ValidateUser(txtUserName, txtUserPass);
             if (authen.valide == true)
             {
+                cnx.Open();
+                int NumCompte = (int)cmd.ExecuteScalar();
+                Session["idUtilisateur"] = NumCompte;
+                int idUtilsateur = (int)Session["idUtilisateur"];
+                cnx.Close();
                 return RedirectToAction("Accueil", "Home");
             }
             else

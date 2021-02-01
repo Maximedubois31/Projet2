@@ -66,16 +66,31 @@ namespace Projet2.Controllers
         {
             return View();
         }
-        public ActionResult modifierDemandeAide()
+        public ActionResult ModifierDemandeAide()
         {
+            
             return View();
         }
+        /*[HttpPost]
+        public ActionResult ModifierDemandeAide(int NumDemandeAide, Demande d)
+        {
+            DemandeDAO dao = new DemandeDAO();
+            dao.Modifier(NumDemandeAide, d);
+
+            return View();
+        }*/
         public ActionResult validerModificationDemande()
         {
             return View();
         }
         public ActionResult annulerDemande()
         {
+            if (Session["idUtilisateur"] == null)
+            {
+                return RedirectToAction("Connexion", "Authentification");
+            }
+            DemandeDAO demandedao = new DemandeDAO();
+            
             return View();
         }
         public ActionResult RechercheDemandeAide()
@@ -91,7 +106,7 @@ namespace Projet2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult RechercheDemandeAide(string NumDemandeAide, Reponse r)
+        public ActionResult RechercheDemandeAide(int NumDemandeAide, Reponse r)
         {
             ReponseDAO repdao = new ReponseDAO();
             r.NumCompte = (int)Session["idUtilisateur"];

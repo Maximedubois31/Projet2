@@ -100,10 +100,11 @@ namespace Projet2.DAO
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cnx;
-            cmd.CommandText = "SELECT D.DateTraitement, D.HeureTraitement, D.Description, D.NumDemandeAide, T.LibelleAide " +
+            cmd.CommandText = "SELECT D.DateTraitement, D.HeureTraitement, D.Description, D.NumDemandeAide, D.DateAnnulationDemande, T.LibelleAide " +
                 "              FROM DemandeAide D, TypeAide T " +
                 "              WHERE NumCompte = @NumCompte" +
-                "              AND T.IdTypeAide = D.IdTypeAide";
+                "              AND T.IdTypeAide = D.IdTypeAide " +
+                "              AND D.DateAnnulationDemande is NULL";
             cmd.Parameters.Add(new SqlParameter("@NumCompte", u.NumCompte));
 
             cnx.Open();
@@ -162,6 +163,102 @@ namespace Projet2.DAO
 
             return ListePropositionEnCours;
         }
+
+        public void Annuler(int NumDemandeAide, int NumCompte)
+        {
+            // creer connection
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            // creer commande
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "UPDATE DemandeAide " +
+                "              SET DateAnnulationDemande = @DateAnnulationDemande" +
+                "              WHERE NumDemandeAide = @NumDemandeAide" +
+                "              AND NumCompte = @NumCompte";
+
+            // ajouter params commande
+            cmd.Parameters.Add(new SqlParameter("@DateAnnulationDemande", DateTime.Now));
+            cmd.Parameters.Add(new SqlParameter("@NumDemandeAide", NumDemandeAide));
+            cmd.Parameters.Add(new SqlParameter("@NumCompte", NumCompte));
+
+            // ouvrir connection
+            cnx.Open();
+
+            // executer commande
+            cmd.ExecuteNonQuery();
+
+            // fermer connection
+            cnx.Close();
+        }
+
+        /* public void Modifier(int NumDemandeAide, Demande d)
+        {
+            // creer connection
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            // creer commande
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "UPDATE DemandeAide " +
+                "              SET Description = @Description, DateTraitement = @DateTraitement, HeureTraitement = @HeureTraitement, IdTypeAide = @IdTypeAide" +
+                "              WHERE NumDemandeAide = @NumDemandeAide";
+
+            // ajouter params commande
+            cmd.Parameters.Add(new SqlParameter("@NumDemandeAide", NumDemandeAide));           
+            cmd.Parameters.Add(new SqlParameter("@DateTraitement", d.dateTraitement));
+            cmd.Parameters.Add(new SqlParameter("@HeureTraitement", d.heureTraitement));
+            cmd.Parameters.Add(new SqlParameter("@Description", d.description));
+            cmd.Parameters.Add(new SqlParameter("@IdTypeAide", d.description));
+
+
+            // ouvrir connection
+            cnx.Open();
+
+            // executer commande
+            cmd.ExecuteNonQuery();
+
+            // fermer connection
+            cnx.Close();
+        }
+
+        public Demande GetOne(int NumDemandeAide, Demande d)
+        {
+          
+            SqlConnection cnx = new SqlConnection();
+            cnx.ConnectionString = CNX_STR;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "SELECT R.DateReponse, R.NumDemandeAide, D.NumDemandeAide, T.LibelleAide, D.DateTraitement, D.HeureTraitement, D.Description" +
+                "              FROM TypeAide T, DemandeAide D, Repondre R" +
+                "              WHERE T.IdTypeAide = D.IdTypeAide" +
+                "              AND R.NumDemandeAide = D.NumDemandeAide" +
+                "              AND D.NumDemandeAide = @NumDemandeAide" +
+                "              AND R.DateReponse is null";
+
+
+            cnx.Open();
+
+            cmd.Parameters.Add(new SqlParameter("@NumDemandeAide", NumDemandeAide));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                d.dateTraitement = dr.GetDateTime(dr.GetOrdinal("DateTraitement"));
+                d.heureTraitement = dr.GetString(dr.GetOrdinal("HeureTraitement"));
+                d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+                d.description = dr.GetString(dr.GetOrdinal("Description"));
+                d.LibelleAide = dr.GetString(dr.GetOrdinal("LibelleAide"));
+
+                               
+            }
+            cnx.Close();
+            return d;
+        }
+        */
 
     }
 }

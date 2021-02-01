@@ -11,7 +11,7 @@ namespace Projet2.DAO
     {
         private const string CNX_STR = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=projet2Bdd;Integrated Security=True";
 
-        public void Choisir(string NumDemandeAide, int NumCompte)
+        public void Choisir(int NumDemandeAide, int NumCompte)
         {
             // creer connection
             SqlConnection cnx = new SqlConnection();
