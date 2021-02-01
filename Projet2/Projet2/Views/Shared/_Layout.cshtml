@@ -105,6 +105,14 @@
                     <li>@Html.ActionLink("Mon compte", "MonCompte", "Utilisateur")</li>
                     <li>@Html.ActionLink("Faire une demande", "FaireUneDemande", "Demande")</li>
                     <li>@Html.ActionLink("Répondre à une demande", "RechercheDemandeAide", "Demande")</li>
+                    @if(Session["idUtilisateur"] == null)
+                    {
+                        <li>@Html.ActionLink("Se connecter", "Connexion", "Authentification")</li>
+                    }
+                    @if (Session["idUtilisateur"] != null)
+                    {
+                        <li>@Html.ActionLink("Se déconnecter", "Connexion", "Authentification")</li>
+                    }                    
                 </ul>
             </div>
         </div>

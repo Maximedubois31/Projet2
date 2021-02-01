@@ -15,7 +15,8 @@ namespace Projet2.Controllers
         // GET: Authentification
         public ActionResult seDeconnecter()
         {
-            return View();
+            Session.Clear();
+            return RedirectToAction("Authentification", "Connexion"); ;
         }
         public ActionResult Connexion()
         {  
